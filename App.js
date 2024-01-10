@@ -1,9 +1,8 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import HomeScreen from './src/Screens/HomeScreen'
 import SplashScreen from './src/Screens/SplashScreen'
-import Mobilenum from './src/Screens/Mobilenum';
-
+import Mobilenum from './src/Screens/MobilenumScreen';
+import OtpverifyScreen from './src/Screens/OtpverifyScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -13,11 +12,10 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={SplashScreen} screenOptions={{ header: () => null }}>
-
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Mobile" component={Mobilenum} />
+        <Stack.Screen name="Otpverify" component={OtpverifyScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
-
       </Stack.Navigator>
     </NavigationContainer>
   )
