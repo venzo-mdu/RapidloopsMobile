@@ -10,8 +10,26 @@ const HomeScreen = () => {
             <View style={{ flex: 1 }}>
                 <StatusBar backgroundColor="#bf841e" barStyle="light-content" />
 
-                <Image style={{ width: '100%', height: 130 }} source={require('../assets/images/app_bar.png')} />
-                <Image style={{ alignSelf: 'center', width: '50%', }} source={require('../assets/images/rapidloops_logo.png')} />
+                <View style={{ backgroundColor: 'red', flex: 1 }}>
+                    <Image style={{ width: '100%', height: 130 }} source={require('../assets/images/app_bar.png')} />
+                    <Image style={{ width: '43%', height: '78%', alignSelf: 'center', bottom: '86%' }} source={require('../assets/images/rapidloop_logo_white.png')} />
+                </View>
+
+
+                <View style={{ flexDirection: 'row', bottom: '20%', justifyContent: 'space-between', marginHorizontal: 25 }}>
+                    <Image style={{ width: 33, height: 33, }} source={require('../assets/icons/menu.png')} />
+                    <Image style={{ width: 23, height: 23 }} source={require('../assets/icons/bell.png')} />
+
+                </View>
+                <View style={{}}>
+
+                </View>
+
+
+
+
+
+
             </View>
         </ScrollView>
     )
