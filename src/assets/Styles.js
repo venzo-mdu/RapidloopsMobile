@@ -59,6 +59,15 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat-Bold'
 
     },
+    GreyAreaText: {
+        top:5,
+        marginTop:5,
+        color: 'white',
+        fontSize: 15,
+        alignSelf: 'center',
+        fontFamily: 'Montserrat-Medium'
+
+    },
 
 
 });
