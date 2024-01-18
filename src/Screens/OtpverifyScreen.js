@@ -56,7 +56,7 @@ const OtpverifyScreen = ({ navigation }) => {
                         <Text style={STYLES.didntrecieve}>Didn't recieved the OTP? </Text>
                         <Text style={STYLES.resendotp}>RESEND OTP</Text>
                     </View>
-                    <TouchableOpacity style={styles.OTPButton} onPress={() => navigation.navigate('MainHome')}>
+                    <TouchableOpacity style={styles.OTPButton} onPress={() => navigation.navigate('tabsnew')}>
                         <Text style={styles.ButtonText}>VERIFY & PROCEED</Text>
                     </TouchableOpacity>
 
