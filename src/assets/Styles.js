@@ -60,15 +60,27 @@ const styles = StyleSheet.create({
 
     },
     GreyAreaText: {
-        top:5,
-        marginTop:5,
+        top: 5,
+        marginTop: 5,
         color: 'white',
         fontSize: 15,
         alignSelf: 'center',
         fontFamily: 'Montserrat-Medium'
 
     },
+    Username: {
+        color: 'black',
+        fontSize: 17,
+        fontFamily: 'Montserrat-SemiBold',
+        marginTop: 5
+    },
+    NameInside: {
+        color: '#717171',
+        fontSize: 14,
+        fontFamily: 'Montserrat-Medium',
+        marginTop: 5,
 
+    },
 
 });
 

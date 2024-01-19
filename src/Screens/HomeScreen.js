@@ -9,7 +9,8 @@ const HomeScreen = () => {
     const navigation = useNavigation();
 
     const openDrawer = () => {
-        navigation.dispatch(DrawerActions.openDrawer());
+        // navigation.dispatch(DrawerActions.openDrawer());
+        navigation.openDrawer()
     };
 
     const [pickedImage, setPickedImage] = useState(null);
@@ -50,10 +51,10 @@ const HomeScreen = () => {
                 <StatusBar backgroundColor="#bf841e" barStyle="light-content" />
 
                 <Image style={{ width: '100%', height: 130, }} source={require('../assets/images/app_bar.png')} />
-                <Image style={{ width: '40%', height: '18%', alignSelf: 'center', bottom: '15%' }} source={require('../assets/images/rapidloop_logo_white.png')} />
+                <Image style={{ width: '49%', height: '18%', alignSelf: 'center', bottom: '15%' }} source={require('../assets/images/rapidloop_logo_white.png')} />
 
                 <View style={{ bottom: '58%', flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 25 }}>
-                    <TouchableOpacity onPress={() => navigation.navigate('MaHome')} >
+                    <TouchableOpacity onPress={openDrawer} >
                         <Image style={{ width: 33, height: 33, }} source={require('../assets/icons/menu.png')} />
                     </TouchableOpacity>
                     <Image style={{ width: 23, height: 23 }} source={require('../assets/icons/bell.png')} />
@@ -96,8 +97,8 @@ const HomeScreen = () => {
                 </View>
 
                 <View style={{ bottom: '40%', marginHorizontal: 15, }}>
-                    <Text style={STYLES.Username} > Test App Kumar</Text>
-                    <Text style={STYLES.NameInside}> App Kumar </Text>
+                    <Text style={styles.Username} > Test App Kumar</Text>
+                    <Text style={styles.NameInside}> App Kumar </Text>
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={STYLES.Partnersince}> Partner Since</Text>
                         <Text style={{ ...STYLES.NameInside, marginLeft: 5, bottom: 5 }}> 04 Dec 2023</Text>
@@ -137,29 +138,29 @@ const HomeScreen = () => {
                 <View style={{ bottom: '37%', }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around', width: '100%' }}>
                         <View style={STYLES.card}>
-                            <Text style={STYLES.Username}>00.0</Text>
-                            <Text style={STYLES.NameInside}>Last Year</Text>
+                            <Text style={styles.Username}>00.0</Text>
+                            <Text style={styles.NameInside}>Last Year</Text>
                         </View>
                         <View style={STYLES.card}>
-                            <Text style={STYLES.Username}>1550</Text>
-                            <Text style={STYLES.NameInside}>This Year</Text>
+                            <Text style={styles.Username}>1550</Text>
+                            <Text style={styles.NameInside}>This Year</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 5 }}>
                         <View style={STYLES.card}>
-                            <Text style={STYLES.Username}>00.0</Text>
-                            <Text style={STYLES.NameInside}>Last Month</Text>
+                            <Text style={styles.Username}>00.0</Text>
+                            <Text style={styles.NameInside}>Last Month</Text>
                         </View>
                         <View style={STYLES.card}>
-                            <Text style={STYLES.Username}>450</Text>
-                            <Text style={STYLES.NameInside}>This Month</Text>
+                            <Text style={styles.Username}>450</Text>
+                            <Text style={styles.NameInside}>This Month</Text>
                         </View>
                     </View>
                 </View>
 
                 <View style={{ ...STYLES.card, width: '93%', bottom: '36%', alignSelf: 'center' }}>
-                    <Text style={STYLES.Username}>50</Text>
-                    <Text style={STYLES.NameInside}>Recievable</Text>
+                    <Text style={styles.Username}>50</Text>
+                    <Text style={styles.NameInside}>Recievable</Text>
                 </View>
 
 
@@ -172,18 +173,7 @@ export default HomeScreen
 
 const STYLES = StyleSheet.create({
 
-    Username: {
-        color: 'black',
-        fontSize: 17,
-        fontFamily: 'Montserrat-SemiBold'
-    },
-    NameInside: {
-        color: '#717171',
-        fontSize: 14,
-        fontFamily: 'Montserrat-Medium',
-        marginBottom: 5,
-        marginTop: 5
-    },
+
     Partnersince: {
         color: '#717171',
         fontSize: 15,

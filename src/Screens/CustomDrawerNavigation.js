@@ -1,25 +1,77 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, Settings } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 
 const CustomDrawerNavigation = (props) => {
+    const closeDrawer = () => {
+        props.navigation.closeDrawer();
+    };
     return (
         <DrawerContentScrollView {...props}>
             <View style={styles.headerContainer}>
-                {/* <Image style={styles.headerImage} source={require('../assets/openWeatherIcons/splashnew.png')} /> */}
+
+
+
+                <TouchableOpacity
+                    onPress={closeDrawer}>
+                    <Image
+                        style={{ width: 20, height: 25, marginLeft: 'auto', marginRight: 20, marginVertical: 20 }}
+                        source={require('../assets/icons/close.png')}
+                    />
+                </TouchableOpacity>
+                {/* <View style={{ flex: 1, backgroundColor: '#bf841e' }}> */}
+                <View style={styles.drawerscreens}>
+                    <TouchableOpacity
+                        style={styles.drawerItem}
+                        onPress={() => {
+                            props.navigation.navigate('Company');
+                        }}
+                    >
+
+                        <Text style={styles.drawerItemText}>Company Info</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.drawerItem}
+                        onPress={() => {
+                            props.navigation.navigate('Bank');
+                        }}
+                    >
+
+                        <Text style={styles.drawerItemText}>Bank Info</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.drawerItem}
+                        onPress={() => {
+                            props.navigation.navigate('Bank');
+                        }}
+                    >
+
+                        <Text style={styles.drawerItemText}>Users</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.settingsContainer}>
+                    <View>
+                        <TouchableOpacity style={styles.settingsItem}>
+                            <Image
+                                style={{ width: 20, height: 20, marginVertical: 20 }}
+                                source={require('../assets/icons/settings.png')}
+                            />
+                            <Text style={styles.settingstext}>Settings</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ marginLeft: 44 }}>
+                        <TouchableOpacity style={styles.settingsItem}>
+                            <Image
+                                style={{ width: 20, height: 20 }}
+                                source={require('../assets/icons/logout.png')}
+                            />
+                            <Text style={styles.settingstext}>Logout</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
             </View>
 
-            {/* <DrawerItemList {...props} /> */}
-
-            <TouchableOpacity
-                style={styles.drawerItem}
-                onPress={() => {
-                    props.navigation.navigate('Load');
-                }}
-            >
-                {/* <Image style={styles.drawerItemImage} source={require('../assets/openWeatherIcons/calendar.png')} /> */}
-                <Text style={styles.drawerItemText}>Daily  Forecast</Text>
-            </TouchableOpacity>
+            {/* </View> */}
 
         </DrawerContentScrollView>
 
@@ -27,21 +79,18 @@ const CustomDrawerNavigation = (props) => {
 };
 
 const styles = StyleSheet.create({
+    drawerscreens: {
+        marginVertical: 20
+    },
     headerContainer: {
-        backgroundColor: 'white',
+        // backgroundColor: '#bf841e',
+
     },
-    headerImage: {
-        alignSelf: 'center',
-        width: 290,
-        height: 290,
-        resizeMode: 'contain',
-        marginTop: 80,
-        marginBottom: 50
-    },
+
     drawerItem: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingVertical: 20,
+        paddingVertical: 15,
         paddingHorizontal: 20,
     },
     drawerItemImage: {
@@ -50,9 +99,35 @@ const styles = StyleSheet.create({
         marginRight: 50,
     },
     drawerItemText: {
-        fontSize: 20,
-        color: '#5A5A5A',
+        fontSize: 16,
+        fontFamily: 'Montserrat-Bold',
+        color: '#202020',
         fontWeight: '600'
+    },
+    settingstext: {
+        fontSize: 18,
+        fontFamily: 'Montserrat-Regular',
+        color: 'black',
+        alignSelf: 'center',
+        marginLeft: 10
+    },
+    settingsContainer: {
+        flexDirection: 'row',
+        marginVertical: 5,
+        // padding: 10,
+        // alignSelf: 'center',
+
+    },
+    settingsItem: {
+        borderColor: 'black',
+        borderWidth: 1,
+        width: '135%',
+        height: '40%',
+        padding: 15,
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingVertical: 10,
+
     },
 });
 
