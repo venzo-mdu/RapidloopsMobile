@@ -40,6 +40,7 @@ const CompanyInfo = () => {
 
 
             </View>
+
             <View style={{ backgroundColor: '#bf841e', width: '100%', height: windowWidth * (9 / 16) * 0.6, }}>
                 <Text style={STYLES.companyinfo}>Company Info</Text>
 
