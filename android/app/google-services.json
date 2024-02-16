@@ -1,0 +1,173 @@
+// {
+//   "project_info": {
+//     "project_number": "966560453293",
+//     "project_id": "turf-booking-4d092",
+//     "storage_bucket": "turf-booking-4d092.appspot.com"
+//   },
+//   "client": [
+//     {
+//       "client_info": {
+//         "mobilesdk_app_id": "1:966560453293:android:4041dccd2bbcb8204a2c24",
+//         "android_client_info": {
+//           "package_name": "com.venzo.turfbookingapp"
+//         }
+//       },
+//       "oauth_client": [],
+//       "api_key": [
+//         {
+//           "current_key": "AIzaSyDXOkH1vv_t8f-n98CBY9BVMdMsf-mBsGk"
+//         }
+//       ],
+//       "services": {
+//         "appinvite_service": {
+//           "other_platform_oauth_client": []
+//         }
+//       }
+//     }
+//   ],
+//   "configuration_version": "1"
+// }
+
+// {
+//   "project_info": {
+//     "project_number": "165725349050",
+//     "project_id": "hadron-platform",
+//     "storage_bucket": "hadron-platform.appspot.com"
+//   },
+//   "client": [
+//     {
+//       "client_info": {
+//         "mobilesdk_app_id": "1:165725349050:web:1217d12e758f6ff8",
+//         "android_client_info": {
+//           "package_name": "com.rapidloopstruck"
+//         }
+//       },
+//       "oauth_client": [],
+//       "api_key": [
+//         {
+//           "current_key": "AIzaSyBgX3bu-3BVy9pu7l1t6cMHhB7hpJagGRk"
+//         }
+//       ],
+//       "services": {
+//         "appinvite_service": {
+//           "other_platform_oauth_client": []
+//         }
+//       }
+//     }
+//   ],
+//   "configuration_version": "1"
+// }
+
+{
+  "project_info": {
+    "project_number": "165725349050",
+    "project_id": "hadron-platform",
+    "storage_bucket": "hadron-platform.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165725349050:android:ce9f50bf96d5bb1d748e83",
+        "android_client_info": {
+          "package_name": "com.rapidloops.rapiddrive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165725349050-uhtnf6ed2q8kv7nvhed8t85krolj2f39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_3DBws-LQ3ev76UACh96a88x4cbsfCEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165725349050-0s6k3j2nieh3u71ka2ri0fs4avg2vl6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165725349050:android:adef14c3271d73e0748e83",
+        "android_client_info": {
+          "package_name": "com.rapidloops.rapidpartner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165725349050-73d22c6uihqmcbj85944kjr8c5teg052.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rapidloops.rapidpartner",
+            "certificate_hash": "bdca16f5824e71dc54a3d8fcc65f67d852b4636a"
+          }
+        },
+        {
+          "client_id": "165725349050-uhtnf6ed2q8kv7nvhed8t85krolj2f39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_3DBws-LQ3ev76UACh96a88x4cbsfCEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165725349050-0s6k3j2nieh3u71ka2ri0fs4avg2vl6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165725349050:android:1e6a878d146e39fe748e83",
+        "android_client_info": {
+          "package_name": "com.rapidloops.rapidtruck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165725349050-p2nha1d2o73l1kc9e5286mge7rofjtqc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rapidloops.rapidtruck",
+            "certificate_hash": "4fd281efb6133b6b3075126dbd3d5ab0f0747190"
+          }
+        },
+        {
+          "client_id": "165725349050-uhtnf6ed2q8kv7nvhed8t85krolj2f39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_3DBws-LQ3ev76UACh96a88x4cbsfCEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165725349050-0s6k3j2nieh3u71ka2ri0fs4avg2vl6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
