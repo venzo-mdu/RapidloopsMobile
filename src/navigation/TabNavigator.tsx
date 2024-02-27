@@ -1,8 +1,8 @@
-import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HomeNavigator, LoadNavigator, TripsNavigator, TruckNavigator } from './HomeStackNavigator';
+import React from 'react';
 import { HOMESTACK, LOADSTACK, TRIPSSTACK, TRUCKSTACK } from '../screens';
 import CustomTabBar from './CustomTabBar';
+import { HomeNavigator, LoadNavigator, TripsNavigator, TruckNavigator } from './HomeStackNavigator';
 
 const TabNavigator = () => {
 

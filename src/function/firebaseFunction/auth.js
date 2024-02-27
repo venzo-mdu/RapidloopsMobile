@@ -72,7 +72,6 @@ const checkPhoneNumberAvailability = async phoneNumber => {
   try {
 
     const usersRef = await FetchData('user');
-    console.error("usersRef : ",usersRef);
     const checkAvilable = usersRef.filter(user => {
       return user.phonenumber == phoneNumber;
     });
@@ -130,9 +129,7 @@ export const loginverifyOtp = async (otp, verificationId) => {
 
   try {
     const credential = PhoneAuthProvider.credential(verificationId, otp); // get the credential
-    console.log("credential : ",credential)
     const response = await signInWithCredential(auth, credential); // verify the credential
-    console.log("response : ",response);
 
     const userData = response?.user;
     const tokenResponse = response?._tokenResponse;
@@ -204,11 +201,9 @@ export const verfiyotpmobile = async (otp, response) => {
 };
 
 export const loginmobile = async (phoneNumber, recaptchaVerifierComp) => {
-  console.warn("INPUT API : ",phoneNumber, recaptchaVerifierComp);
 
   try {
     // const isAvailable = await checkPhoneNumberAvailability(phoneNumber);
-    // console.log("isAvailable : ",isAvailable)
 
     // if (isAvailable) {
       let phoneNumber1 = '+91' + phoneNumber;

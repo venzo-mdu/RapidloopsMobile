@@ -1,16 +1,16 @@
-import { View, Text, ImageBackground, ScrollView, Image, FlatList } from 'react-native'
+import { View, Text, ImageBackground, ScrollView, Image, FlatList, RefreshControl } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import StatusBarCustom from '../../components/StatusBarCustom';
 import { API, COLORS, IMAGEBASEURL, IMAGES } from '../../helpers/custom';
 import { CompanyInfoScreenStyles, HomeScreenStyles, UserScreenStyles } from './AppStyles';
+import { NOTIFICATION } from '..';
 
 const CompanyInfoScreen = () => {
 
   const navigation = useNavigation();
 
   useEffect(() => {
-    console.log("COMPANY INFO",global.COMPANYID)
     getDataFn();
   }, []);
 
@@ -25,18 +25,31 @@ const CompanyInfoScreen = () => {
       })
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log("COMPANY INFO APIs : ",responseJson);
         setCOMPANYINFO([responseJson?.companyInfo]);
+        setRefreshing(false);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
+        setRefreshing(false);
       });
     } catch (error) {
       console.error("catch : ", error);
+      setRefreshing(false);
     }
   };
 
   const [COMPANYINFO, setCOMPANYINFO] = useState();
+
+  const [refreshing, setRefreshing] = useState(false);
+  
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await getDataFn();
+  };
+
+  const NotificationFn = () => {
+    navigation.navigate(NOTIFICATION);
+  };
 
   const openDrawer = () => {
     navigation.toggleDrawer();
@@ -52,7 +65,7 @@ const CompanyInfoScreen = () => {
             <View style={HomeScreenStyles.appBarRowBox}>
               <View onTouchEnd={openDrawer} style={HomeScreenStyles.menuBox} />
 
-              <View style={HomeScreenStyles.bellBox} />
+              <View onTouchEnd={NotificationFn} style={HomeScreenStyles.bellBox} />
             </View>
           </ImageBackground>
         </View>
@@ -67,6 +80,14 @@ const CompanyInfoScreen = () => {
           <FlatList data={COMPANYINFO} 
             showsVerticalScrollIndicator={false} 
             style={CompanyInfoScreenStyles.scrollBox}
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing} 
+                onRefresh={onRefresh} 
+                colors={[COLORS.PRIMARY]} // Customizing spinner colors
+                progressBackgroundColor="#ffffff" // Customizing background color
+              />
+            }
             renderItem={({item, index}) => (
               <>
                 <View style={CompanyInfoScreenStyles.firstBox}>

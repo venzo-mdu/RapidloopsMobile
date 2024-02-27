@@ -8,13 +8,14 @@ import { Snackbar } from 'react-native-paper';
 import Clipboard from '@react-native-clipboard/clipboard';
 import { DRAWERHOME } from '..';
 import { loginverifyOtp } from '../../function/firebaseFunction/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const PhoneNumberOTPScreen = (props) => {
 
   const navigation = useNavigation();
 
   useEffect(() => {
-    console.log("phoneNum :",props.route.params?.phoneNum,props.route.params?.verificationId);
     setPhoneNumber(props.route.params?.phoneNum);
     handlePaste();
   }, []);
@@ -22,8 +23,6 @@ const PhoneNumberOTPScreen = (props) => {
   const [phoneNumber, setPhoneNumber] = useState();
 
   const getOTPFn = async () => {
-    console.log(otp,otp?.length, otp.join(""));
-
     const verificationCode = otp.join("");
 
     if(otp?.length != 6) {
@@ -35,9 +34,13 @@ const PhoneNumberOTPScreen = (props) => {
       }
     } else {
       const response = await loginverifyOtp(verificationCode, props.route.params?.verificationId);
-      console.log("response : ",response)
+
       global.TOKEN = response?.tokenResponse?.idToken;
       global.USERID = response?.userData?.uid;
+
+      AsyncStorage.setItem('TOKEN', response?.tokenResponse?.idToken);
+      AsyncStorage.setItem('USERID', response?.userData?.uid);
+      AsyncStorage.setItem('PHONENUM',  props.route.params?.phoneNum);
 
       try {
         fetch(API.TruckerData + "?truckerPhoneNumber=" + props.route.params?.phoneNum, {
@@ -49,15 +52,14 @@ const PhoneNumberOTPScreen = (props) => {
         })
         .then((response) => response.json())
         .then((responseJson) => {
-          console.log("API INTEGRETION : ",responseJson);
-
           if(responseJson?.success) {
             global.COMPANYID = responseJson?.companyInfo?.companyId
+            AsyncStorage.setItem('COMPANYID', responseJson?.companyInfo?.companyId);
             navigation.navigate(DRAWERHOME);
           }
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
       } catch (error) {
         console.error("catch : ", error);
@@ -91,7 +93,7 @@ const PhoneNumberOTPScreen = (props) => {
   const handlePaste = async () => {
     try {
       const clipboardContent = await Clipboard.getString();
-      console.log(clipboardContent, clipboardContent?.length)
+
       if(clipboardContent?.length == 6) {
         const otpValues = clipboardContent.split('').slice(0, 6);
   

@@ -1,17 +1,18 @@
-import { View, Text, SafeAreaView, ImageBackground, Image, ScrollView, FlatList } from 'react-native'
+import { View, Text, SafeAreaView, ImageBackground, Image, ScrollView, FlatList, RefreshControl } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import StatusBarCustom from '../../components/StatusBarCustom';
 import { API, COLORS, ICONS, IMAGEBASEURL, IMAGES, getStatusBarHeight } from '../../helpers/custom';
 import { HomeScreenStyles } from './AppStyles';
 import moment from "moment";
+import { NOTIFICATION } from '..';
+import {launchImageLibrary} from 'react-native-image-picker';
 
 const HomeScreen = () => {
 
   const navigation = useNavigation();
 
   useEffect(() => {
-    console.log("HOME",global.COMPANYID)
     getDataFn();
   }, []);
 
@@ -26,21 +27,120 @@ const HomeScreen = () => {
       })
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log("HOME APIs : ",responseJson);
         setDASHBOARDINFO([responseJson]);
+        setRefreshing(false);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
+        setRefreshing(false);
       });
+    } catch (error) {
+      console.error("catch : ", error);
+      setRefreshing(false);
+    }
+  };
+
+  const uploadImgFn = async () => {
+    const options = {
+      maxHeight: 2000,
+      maxWidth: 2000,
+      storageOptions: {
+        skipBackup: true,
+        path: 'images'
+      },
+      mediaType: 'photo',
+      includeBase64: false,
+    };
+
+    var res;
+
+    await launchImageLibrary(options, (response) => {      
+      if (response.didCancel) {
+        console.error('User cancelled image picker');
+      } else if (response.error) {
+        console.error('Image picker error: ', response.error);
+      } else {
+        res = response?.assets[0]?.uri;
+      }
+    });
+
+    try {
+
+      const data = JSON.stringify({
+        "id" : global.USERID,
+        "docExt" : "jpeg",
+        "imageType" : "userProfile",
+      });
+    
+      await fetch(API?.DashboardIMG, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + global.TOKEN,
+        },
+        body: data
+      })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.error("DashboardIMG : ",responseJson)
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
     } catch (error) {
       console.error("catch : ", error);
     }
   };
 
+  const dashboardDeleteImageFn = async () => {
+    try {
+
+      const data = JSON.stringify({
+        "id" : global.USERID,
+        "fileName" : "user/userProfile-6ff50653-eb5b-4bdf-9ccb-cb50281784a2.jpg",
+        "fileType" : "userProfile",
+      });
+      
+      console.error(data)
+
+    
+      await fetch(API?.DashboardDeleteIMG, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + global.TOKEN,
+        },
+        body: data
+      })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.error("DELETE : ",responseJson)
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    } catch (error) {
+      console.error("catch : ", error);
+    }
+  }
+
   const [DASHBOARDINFO, setDASHBOARDINFO] = useState([1]);
+
+  const NotificationFn = () => {
+    navigation.navigate(NOTIFICATION);
+  };
 
   const openDrawer = () => {
     navigation.toggleDrawer();
+  };
+
+  const [refreshing, setRefreshing] = useState(false);
+  
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await getDataFn();
   };
 
   return (
@@ -53,23 +153,32 @@ const HomeScreen = () => {
             <View style={HomeScreenStyles.appBarRowBox}>
               <View onTouchEnd={openDrawer} style={HomeScreenStyles.menuBox} />
 
-              <View style={HomeScreenStyles.bellBox} />
+              <View onTouchEnd={NotificationFn} style={HomeScreenStyles.bellBox} />
             </View>
           </ImageBackground>
-        </View>
+        </View> 
 
         <FlatList data={DASHBOARDINFO} 
           showsVerticalScrollIndicator={false} 
           style={HomeScreenStyles.scrollContainer}
           contentContainerStyle={{paddingBottom: 16}}
+          refreshControl={
+            <RefreshControl 
+              refreshing={refreshing} 
+              onRefresh={onRefresh} 
+              colors={[COLORS.PRIMARY]} // Customizing spinner colors
+              progressBackgroundColor="#ffffff" // Customizing background color
+            />
+          }
           renderItem={({item, index}) => (
             <>
               <View style={HomeScreenStyles.userBGImgBox}>
-                <View style={HomeScreenStyles.userProfileImgBox}>
+                <View onTouchEnd={dashboardDeleteImageFn} style={HomeScreenStyles.userProfileImgBox}>
+                {/* <Image source={{uri : "https://hadrondev.blob.core.windows.net/hadron-rapidloops-com/user/userProfile-c352fe9f-a2e6-4642-8577-4918b14ffac1.jpg"}} style={HomeScreenStyles.userProfileCoverImg} /> */}
                   <Image source={{uri : IMAGEBASEURL + item?.userDetail?.truckerProfileImage}} style={HomeScreenStyles.userProfileImg} />
                 </View>
 
-                <View style={HomeScreenStyles.userProfileCoverImgBox}>
+                <View onTouchEnd={uploadImgFn} style={HomeScreenStyles.userProfileCoverImgBox}>
                   <Image source={{uri : IMAGEBASEURL + item?.companyDetail?.companyProfileImage}} style={HomeScreenStyles.userProfileCoverImg} />
                 </View>
 

@@ -1,16 +1,16 @@
-import { View, Text, ImageBackground, Image, FlatList } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, Text, ImageBackground, Image, FlatList, TextInput, Animated, Button, StyleSheet } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import StatusBarCustom from '../../components/StatusBarCustom';
 import { API, COLORS, ICONS, IMAGES } from '../../helpers/custom';
 import { CompanyInfoScreenStyles, HomeScreenStyles, TruckScreenStyles } from './AppStyles';
+import { NOTIFICATION } from '..';
 
 const TruckScreen = () => {
 
   const navigation = useNavigation();
 
   useEffect(() => {
-    console.log("TRUCK LIST",global.COMPANYID)
     getDataFn();
   }, []);
 
@@ -25,21 +25,85 @@ const TruckScreen = () => {
       })
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log("TRUCK LIST APIs : ",responseJson);
         setTRUCKLIST(responseJson?.truckInfo);
+        setREALTRUCKLIST(responseJson?.truckInfo);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
     } catch (error) {
       console.error("catch : ", error);
     }
   };
 
+  const [REALTRUCKLIST, setREALTRUCKLIST] = useState();
   const [TRUCKLIST, setTRUCKLIST] = useState();
 
   const openDrawer = () => {
     navigation.toggleDrawer();
+  };
+
+  const NotificationFn = () => {
+    navigation.navigate(NOTIFICATION);
+  };
+
+  const [showSearch, setShowSearch] = useState(false);
+  const [Search, setSearch] = useState("");
+
+  const filterFn1 = (value) => {
+    setSearch(value);
+    // setShowSearchList(true);
+
+    let filteredData = REALTRUCKLIST.filter(
+      function (item) {
+        return item?.truckNumber.toLowerCase().includes(value.toLowerCase());
+      }
+    );
+      
+    setTRUCKLIST(filteredData);
+  };
+
+  const filterFn = (value) => {
+    setSearch(value);
+
+    let filteredData = REALTRUCKLIST.filter(
+      function (item) {
+        return item?.truckNumber.toLowerCase().includes(value.toLowerCase());
+      }
+    );
+      
+    setTRUCKLIST(filteredData);
+  };
+
+  // fadeAnim will be used as the value for opacity. Initial Value: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  const fadeIn = () => {
+    // console.log(fadeAnim)
+    // // Will change fadeAnim value to 1 in 5 seconds
+    // Animated.timing(fadeAnim, {
+    //   toValue: 1,
+    //   duration: 5000,
+    //   useNativeDriver: true,
+    // }).start();
+
+    setShowSearch(true)
+    // console.log(fadeAnim)
+  };
+
+  const fadeOut = () => {
+    // console.log(fadeAnim)
+    // // Will change fadeAnim value to 0 in 3 seconds
+    // Animated.timing(fadeAnim, {
+    //   toValue: 0,
+    //   duration: 3000,
+    //   useNativeDriver: true,
+    // }).start();
+
+    setTRUCKLIST(REALTRUCKLIST);
+    setSearch("");
+    setShowSearch(false)
+    // console.log(fadeAnim)
   };
 
   return (
@@ -52,11 +116,38 @@ const TruckScreen = () => {
             <View style={HomeScreenStyles.appBarRowBox}>
               <View onTouchEnd={openDrawer} style={HomeScreenStyles.menuBox} />
 
-              <View style={HomeScreenStyles.searchBox}>
-                <Image source={ICONS.WHITESEARCH} style={{width:22, height:22, marginTop:2}} />
-              </View>
+              {showSearch ? (
+                <View style={[HomeScreenStyles.searchIPBox,
+                  // {
+                  //   // Bind opacity to animated value
+                  //   opacity: fadeAnim,
+                  // },
+                ]}>
+                  <View onTouchEnd={fadeOut} style={HomeScreenStyles.searchIPBackBox}>
+                    <Image source={ICONS.PRIMARYBACK} style={{width:18, height:18}} />
+                  </View>
 
-              <View style={[HomeScreenStyles.bellBox, {marginLeft:0}]} />
+                  <View style={{flex: 1}}>
+                    <TextInput
+                      onChangeText={value => filterFn(value)}
+                      value={Search}
+                      style={HomeScreenStyles.searchIPTxtBox}
+                      placeholder={"Search"}
+                      placeholderTextColor={"#646464"}
+                      keyboardType="web-search"
+                      inputMode="search"
+                      autoFocus={true}
+                      autoCapitalize="characters"
+                    />
+                  </View>
+                </View>
+              ) : (
+                <View onTouchEnd={fadeIn} style={HomeScreenStyles.searchBox}>
+                  <Image source={ICONS.WHITESEARCH} style={{width:22, height:22, marginTop:2}} />
+                </View>
+              )}
+              
+              <View onTouchEnd={NotificationFn} style={[HomeScreenStyles.bellBox, {marginLeft:0}]} />
             </View>
           </ImageBackground>
         </View>
@@ -83,8 +174,8 @@ const TruckScreen = () => {
                   </View>
 
                   <View style={TruckScreenStyles.statusBox}>
-                    <View style={[TruckScreenStyles.statusCircle, {backgroundColor: item?.status == "ACTIVE_IDLE" ? "#0300fb" : "#11a92f"}]} />
-                    <Text style={[TruckScreenStyles.statusTxt, {color: item?.status == "ACTIVE_IDLE" ? "#0300fb" : "#11a92f"}]}>{item?.status == "ACTIVE_IDLE" ? "Idle" : "On Trip"}</Text>
+                    <View style={[TruckScreenStyles.statusCircle, {backgroundColor: item?.status == "ACTIVE_IDLE" ? "#0300fb" : item?.status == "ACTIVE_ONGOING" ? "#11a92f" : "#faaa00"}]} />
+                    <Text style={[TruckScreenStyles.statusTxt, {color: item?.status == "ACTIVE_IDLE" ? "#0300fb" : item?.status == "ACTIVE_ONGOING" ? "#11a92f" : "#faaa00"}]}>{item?.status == "ACTIVE_IDLE" ? "Idle" : item?.status == "ACTIVE_ONGOING" ? "On Trip" : item?.status == "ACTIVE_ASSIGNED" ? "Assigned" : null}</Text>
                   </View>
 
                   <View style={TruckScreenStyles.locationCircleBox}>
@@ -101,3 +192,23 @@ const TruckScreen = () => {
 }
 
 export default TruckScreen
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  fadingContainer: {
+    padding: 20,
+    backgroundColor: 'powderblue',
+  },
+  fadingText: {
+    fontSize: 28,
+  },
+  buttonRow: {
+    flexBasis: 100,
+    justifyContent: 'space-evenly',
+    marginVertical: 16,
+  },
+});

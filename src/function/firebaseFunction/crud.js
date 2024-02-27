@@ -21,7 +21,6 @@ const ids = {
 //     const querySnapshot = await getDocs(collectionRef);
 //     data = querySnapshot.docs.map(doc => { return { [ids[table]]: doc.id, ...doc.data() } })
 //   } catch (e) {
-//     console.error('Error getting documents:', e);
 //   }
 
 //   return data

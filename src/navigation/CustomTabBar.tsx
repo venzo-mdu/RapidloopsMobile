@@ -2,6 +2,8 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Image, Platform } from 'react-native';
 import { COLORS, FONTS, ICONS } from '../helpers/custom';
+import { LOADDETAILS } from '../screens';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 const CustomTabBar = ({ state, descriptors, navigation }) => {
 
@@ -25,34 +27,46 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
         };
 
         return (
-          <TouchableOpacity
-            key={index}
-            accessibilityRole="button"
-            accessibilityState={isFocused ? { selected: true } : {}}
-            accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarTestID}
-            onPress={onPress}
-            style={CustomTabBarStyles.individualTab}
-          >
-            {index == 0 ? (
-              <View>
-                <Image source={isFocused ? ICONS.DRAWERHOMEACTIVE : ICONS.DRAWERHOMEINACTIVE} style={{ width: 20, height: 20}} />
-              </View>
-            ) : index == 1 ? (
-              <View>
-                <Image source={isFocused ? ICONS.DRAWERLOADACTIVE : ICONS.DRAWERLOADINACTIVE} style={{ width: 20, height: 20}} />
-              </View>
-            ) : index == 2 ? (
-              <View>
-                <Image source={isFocused ? ICONS.DRAWERTRIPSACTIVE : ICONS.DRAWERTRIPSINACTIVE} style={{ width: 20, height: 20}} />
-              </View>
-            ) : index == 3 ? (
-              <View>
-                <Image source={isFocused ? ICONS.DRAWERTRUCKACTIVE : ICONS.DRAWERTRUCKINACTIVE} style={{ width: 20, height: 20}} />
-              </View>
-            ) : null}
-            <Text style={{ fontSize: 12, color: isFocused ? COLORS.PRIMARY : '#a49f99', fontFamily: FONTS.MontserratSemiBold, marginTop: 4 }}>{label}</Text>
-          </TouchableOpacity>
+          <>
+            <TouchableOpacity
+              key={index}
+              accessibilityRole="button"
+              accessibilityState={isFocused ? { selected: true } : {}}
+              accessibilityLabel={options.tabBarAccessibilityLabel}
+              testID={options.tabBarTestID}
+              onPress={onPress}
+              style={CustomTabBarStyles.individualTab}
+            >
+              {index == 0 ? (
+                <View>
+                  <Image source={isFocused ? ICONS.DRAWERHOMEACTIVE : ICONS.DRAWERHOMEINACTIVE} style={{ width: 20, height: 20}} />
+                </View>
+              ) : index == 1 ? (
+                <View>
+                  <Image source={isFocused ? ICONS.DRAWERLOADACTIVE : ICONS.DRAWERLOADINACTIVE} style={{ width: 20, height: 20}} />
+                </View>
+              ) : index == 2 ? (
+                <View>
+                  <Image source={isFocused ? ICONS.DRAWERTRIPSACTIVE : ICONS.DRAWERTRIPSINACTIVE} style={{ width: 20, height: 20}} />
+                </View>
+              ) : index == 3 ? (
+                <View>
+                  <Image source={isFocused ? ICONS.DRAWERTRUCKACTIVE : ICONS.DRAWERTRUCKINACTIVE} style={{ width: 20, height: 20}} />
+                </View>
+              ) : null}
+              <Text style={{ fontSize: 12, color: isFocused ? COLORS.PRIMARY : '#a49f99', fontFamily: FONTS.MontserratSemiBold, marginTop: 4 }}>{label}</Text>
+            </TouchableOpacity>
+            
+            {/* {(LOADDETAILS == getFocusedRouteNameFromRoute(route) ?? "") ? (
+              <>
+              <Text>1</Text>
+              </>
+            ) : (
+              <>
+              <Text>2</Text>
+              </>
+            )} */}
+          </>
         );
       })}
     </View>

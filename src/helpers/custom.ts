@@ -16,6 +16,7 @@ export const FONTS = {
   MontserratExtraBold: 'Montserrat-ExtraBold',
   MontserratLight: 'Montserrat-Light',
   MontserratMedium: 'Montserrat-Medium',
+  MontserratRegular: 'Montserrat-Regular',
   MontserratSemiBold: 'Montserrat-SemiBold',
   MontserratSemiBoldItalic: 'Montserrat-SemiBoldItalic',
   MontserratThin: 'Montserrat-Thin',
@@ -28,10 +29,10 @@ export const IMAGES = {
   OTPGLOBELOGO : require(ImagePath + 'otp_page_globe-removebg.png'),
   APPBARBG : require(ImagePath + 'app_bar_bg.jpeg'),
   HOMEBGIMG : require(ImagePath + 'Home_bg_img.jpeg'),
+  NOTIFICATIONBGIMG : require(ImagePath + 'notificiation_bg.jpeg'),
   USERCOVERBG : require(ImagePath + 'user_cover_bg.jpeg'),
   LOADSDETAILSBG : require(ImagePath + 'loads_details_bg.png'),
   USERPROFILE : require(ImagePath + 'profile.png'),
-  
 };
 
 export const ICONS = {
@@ -49,6 +50,7 @@ export const ICONS = {
   WHITEBELL : require(IconPath + 'white_bell.png'),
   WHITESEARCH : require(IconPath + 'white_search.png'),
   BLACKCLOSE : require(IconPath + 'black_close.png'),
+  PRIMARYBACK : require(IconPath + 'back_arrow_primary.png'),
   BLACKSETTINGS : require(IconPath + 'black_settings.png'),
   BLACKLOGOUT : require(IconPath + 'black_logout.png'),
   LIGHTGREYLOCATIONPINBOX : require(IconPath + 'lightgrey_truck_location_pin.jpeg'),
@@ -65,7 +67,8 @@ export const ICONS = {
   WHITELEFTARR : require(IconPath + 'back_arrow_white.png'),
   WHITECALL : require(IconPath + 'white_call.png'),
   LIGHTGREYUSER : require(IconPath + 'user_lightgrey.png'),
-  
+  LIGHTGREYEYE : require(IconPath + 'eye_lightgrey.png'),
+  BLACKDROPDOWN : require(IconPath + 'caret-down.png'),
 };
 
 // Function to get status bar height
@@ -122,13 +125,27 @@ const BaseURL = 'http://uat-hadron.rapidloops.com/api';
 export const API = {
   TruckerData : BaseURL + '/mobile/trucker/data',
   Dashboard : BaseURL + '/mobile/trucker/dashboard',
+  DashboardIMG : BaseURL + '/mobile/trucker/azure/dashboardImage',
+  DashboardDeleteIMG : BaseURL + '/mobile/trucker/azure/deleteImage',
+
+  
   CompanyInfo : BaseURL + '/mobile/trucker/companyInfo',
   BankInfo : BaseURL + '/mobile/trucker/bankInfo',
   TruckList : BaseURL + '/mobile/fleet/trucksByCompany',
   LoadList : BaseURL + '/mobile/load/getAllLoadsByTrucker/v2', // POST
+  LoadDetails : BaseURL + '/mobile/load/loadSummary',
+  // TripsList : BaseURL + '/mobile/trip/getAllTripsForMobileTrucker/v2', // POST
   TripsList : BaseURL + '/mobile/trip/getAllTripsForMobileTrucker/v2', // POST
-  ActiveShipperList: BaseURL + '/mobile/trucker/activeShipper',
+
+  // ActiveShipperList: BaseURL + '/mobile/trucker/activeShipper',
+  ActiveShipperList: BaseURL + '/mobile/trucker/load/shippers',
   MaterialList : BaseURL + '/mobile/trucker/filter/materials',
+  NotificationsList : BaseURL + '/mobile/trucker/notifications',
+  NotificationsViewed : BaseURL + '/mobile/trucker/notification/viewed',
+  LoadingPointList: BaseURL + '/mobile/load/getAllLoadingPoints',
+  AllTrucksList: BaseURL + '/mobile/fleet/trucksByCompany',
+  AssignTruck: BaseURL + '/mobile/trip/assignTrip',
+  
 };
 
 export const IMAGEBASEURL = 'https://hadrondev.blob.core.windows.net/hadron-rapidloops-com/';

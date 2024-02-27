@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
-import React, { useRef, useState } from 'react'
-import { Image, Platform, ScrollView, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react'
+import { Alert, BackHandler, Image, Platform, ScrollView, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native'
 import { Snackbar } from 'react-native-paper'
 import { PHONENUMBEROTP } from '..'
 import StatusBarCustom from '../../components/StatusBarCustom'
@@ -19,7 +19,6 @@ const PhoneNumberLoginScreen = () => {
   const recaptchaVerifier = useRef(null);
 
   const getOTPFn = async () => {
-    console.log(phoneNumber,phoneNumber?.length);
 
     if(phoneNumber?.length != 10) {
       if(Platform.OS == "ios") {
@@ -31,8 +30,8 @@ const PhoneNumberLoginScreen = () => {
     } else {
       const phoneNum = phoneNumber;
       const res = await loginmobile(phoneNum, recaptchaVerifier);
-      console.log("resresresres : ",res)
       const verificationId = res?.verificationId;
+      setPhoneNumber();
   
       navigation.navigate(PHONENUMBEROTP, {phoneNum, verificationId});
       
