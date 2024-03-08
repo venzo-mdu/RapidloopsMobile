@@ -6,7 +6,7 @@ import { PhoneNumberLoginStyles, PhoneNumberOTPStyles } from './AuthStyles';
 import { API, COLORS, IMAGES } from '../../helpers/custom';
 import { Snackbar } from 'react-native-paper';
 import Clipboard from '@react-native-clipboard/clipboard';
-import { DRAWERHOME } from '..';
+import { DRAWERHOME, PARTNERDRAWERHOME, PARTNERTABHOME } from '..';
 import { loginverifyOtp } from '../../function/firebaseFunction/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -55,7 +55,9 @@ const PhoneNumberOTPScreen = (props) => {
           if(responseJson?.success) {
             global.COMPANYID = responseJson?.companyInfo?.companyId
             AsyncStorage.setItem('COMPANYID', responseJson?.companyInfo?.companyId);
-            navigation.navigate(DRAWERHOME);
+            console.warn("responseJson : ",responseJson);
+            // navigation.navigate(DRAWERHOME);
+            navigation.navigate(PARTNERTABHOME);
           }
         })
         .catch((error) => {

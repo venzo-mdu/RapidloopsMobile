@@ -22,3 +22,16 @@ export const BANKINFO = 'Bank Info Screen';
 export const USERS = 'Users Screen';
 export const SETTINGS = 'Settings Screen';
 export const NOTIFICATION = 'Notification Screen';
+
+export const PARTNERDRAWERHOME = 'Partner Drawer Home Navigator';
+
+export const PARTNERTABHOME = 'Partner Tab Home Navigator';
+
+export const PARTNERHOMESTACK = 'Home'
+export const PARTNERLOADSTACK = 'Load'
+export const PARTNERTRIPSSTACK = 'Trips'
+
+export const PARTNERDASHBOARD = 'Partner Dashboard Screen';
+export const PARTNERLOAD = 'Partner Load Screen';
+export const PARTNERTRIPS = 'Partner Trips Screen';
+export const PARTNERLOADDETAILS = 'Partner Load Details Screen'

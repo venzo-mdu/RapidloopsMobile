@@ -50,7 +50,7 @@ export const HomeScreenStyles = StyleSheet.create({
     marginHorizontal: 5,
     marginTop: 5,
     borderRadius: 9,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.WHITE,
   },
   searchIPBackBox: {
     width: 40,
@@ -1316,5 +1316,471 @@ export const NotificationScreenStyles = StyleSheet.create({
     color: COLORS.BLACK,
     fontFamily: FONTS.MontserratMedium,
     marginTop: 12,
+  },
+});
+
+
+export const PartnerDashboardScreenStyles = StyleSheet.create({
+  container: {
+    backgroundColor: COLORS.WHITE,
+    width: '100%',
+    height: '100%',
+  },
+  appBarBGIMGBox: {
+    backgroundColor: COLORS.PRIMARY,
+    width: WD,
+    paddingTop: Platform.OS == 'ios' ? 64 : 0,
+    height: 64,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  appBarBGIMGView: {
+    width: 112,
+    height: 56,
+    alignItems: "center",
+    justifyContent: "flex-end",
+    marginTop: "auto",
+    marginBottom: 2,
+  },
+  appBarBGIMG: {
+    width: 102,
+    height: 50,
+    resizeMode: 'contain',
+  },
+  appBarIconBox: {
+    width: 48,
+    height: 48,
+    ...helpersCSS.Mid,
+  },
+  partnerCoverImgBox: {
+    width: WD,
+    height: WD * (9/16) * 0.7,
+  },
+  partnerCoverImg: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "stretch",
+  },
+  partnerProfileImgCenterBox: {
+    width: 104, 
+    height: 104, 
+    alignSelf: "center",
+    flexDirection: "row",
+    marginTop: 4,
+    marginBottom: 8,
+  },
+  partnerProfileImgBox: {
+    width: 104, 
+    height: 104, 
+    borderRadius: 104, 
+  },
+  partnerProfileImg: {
+    backgroundColor: COLORS.WHITE,
+    width: 104, 
+    height: 104, 
+    borderRadius: 104,
+  },
+  partnerProfileImgEditBox: {
+    backgroundColor: COLORS.WHITE,
+    width: 34, 
+    height: 34, 
+    borderRadius: 34, 
+    marginLeft: -34,
+    marginTop: "auto",
+    ...helpersCSS.Mid,
+    ...helpersCSS.shadow5,
+  },
+  userNameTxt: {
+    fontSize: 18,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratSemiBold,
+    textAlign: "center",
+    marginBottom: 4,
+  },
+  userPartnerKeyTxt: {
+    fontSize: 12,
+    color: '#969593',
+    fontFamily: FONTS.MontserratMedium,
+    textAlign: "center",
+    marginTop: 4,
+  },
+  userPartnerValueTxt: {
+    fontSize: 14,
+    color: '#747371',
+    fontFamily: FONTS.MontserratSemiBold,
+    marginTop: 4,
+  },
+  earningsRowBox: {
+    flexDirection: 'row',
+    marginHorizontal: 7,
+  },
+  earningIndivBox: {
+    backgroundColor: COLORS.WHITE,
+    width: (WD - (7 * 2) - (9 * 4) - (1 * 4))/2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 10,
+    marginHorizontal: 9,
+    marginTop: 12,
+    borderWidth: 1,
+    borderColor: '#dadada',
+    borderRadius: 12,
+  },
+  earningIndivKeyTxt: {
+    fontSize: 10,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+  },
+  earningIndivValueTxt: {
+    fontSize: 20,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratSemiBold,
+    textAlign: 'auto',
+    marginTop: 10,
+  },
+
+});
+
+export const PartnerLoadsScreenStyles = StyleSheet.create({
+  container: {
+    backgroundColor: COLORS.PRIMARY,
+    width: '100%',
+    height: '100%',
+  },
+  searchBGImgBox: {
+    backgroundColor: COLORS.PRIMARY,
+    width: WD,
+    height: 180,
+  },
+  searchBGImg: {
+    width: WD,
+    height: 152,
+  },
+  headerRow: {
+    flexDirection: "row",
+    marginLeft: 20,
+    marginRight: 8,
+    marginTop: 8,
+    marginBottom: 8,
+  },
+  headerBox: {
+    width: 100,
+    height: 50,
+  },
+  headingTxt: {
+    fontSize: 30,
+    color: COLORS.WHITE,
+    fontFamily: FONTS.Serif72BetaRegular,
+    marginTop: 'auto',
+  },
+  searchBox: {
+    backgroundColor: '#e3c484',
+    flex: 1,
+    height: 40,
+    flexDirection: "row",
+    paddingLeft: 4,
+    paddingRight: 4,
+    marginTop: 'auto',
+    borderWidth: 2,
+    borderColor: COLORS.WHITE,
+  },
+  searchIPTxtBox: {
+    flex: 1,
+    height: 38,
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratSemiBold,
+  },
+  searchIcnBox: {
+    width: 32,
+    height: 36,
+    ...helpersCSS.Mid,
+  },
+  dropdown1: {
+    backgroundColor: '#e3c484',
+    width: (WD - 16),
+    height: 40,
+    paddingLeft: 4,
+    paddingRight: 4,
+    marginHorizontal: 8,
+    marginTop: 8,
+    borderWidth: 2,
+    borderColor: COLORS.WHITE,
+  },
+  cardContentBox: {
+    backgroundColor: COLORS.WHITE,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    marginHorizontal: 8,
+    marginBottom: 16,
+    borderRadius: 15,
+
+    ...helpersCSS.shadow5,
+  },
+  cardContentBoxRow1: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  loadIDTxt: {
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratRegular,
+  },
+  cardContentBoxRow1Column: {
+    flexDirection: "column",
+    alignItems: "flex-end",
+  },
+  materialTxt: {
+    fontSize: 14,
+    color: '#534e45',
+    fontFamily: FONTS.MontserratBold,
+  },
+  materialTypeTxt: {
+    fontSize: 12,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+  },
+  cardContentBoxRow2: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  locationTxt: {
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratBold,
+  },
+  cardContentBoxRow3: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  cardContentBoxRow3a: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  vehicleTxt: {
+    fontSize: 12,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+  },
+  rateTxt: {
+    fontSize: 14,
+    color: '#534e45',
+    fontFamily: FONTS.MontserratBold,
+  },
+});
+
+export const PartnerTripsScreenStyles = StyleSheet.create({
+  cardContentBox: {
+    backgroundColor: COLORS.WHITE,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    marginHorizontal: 8,
+    marginBottom: 16,
+    borderRadius: 15,
+
+    ...helpersCSS.shadow5,
+  },
+  cardContentBoxRow1: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  vehicleNoTxt: {
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratBold,
+  },
+  cardContentBoxRow1a: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 2,
+  },
+  vehicleNoTxt1: {
+    fontSize: 12,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+  },
+  cardContentBoxRow2: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  vehicleTypeTxt: {
+    fontSize: 12,
+    color: '#737270',
+    fontFamily: FONTS.MontserratRegular,
+  },
+  cardContentBoxRow3: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  locationTxt: {
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratBold,
+  },
+  cardContentBoxRow4: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  cardContentBoxRow4a: {
+    flexDirection: "column",
+  },
+  materialTxt: {
+    fontSize: 14,
+    color: '#534e45',
+    fontFamily: FONTS.MontserratBold,
+  },
+  materialTypeTxt: {
+    fontSize: 12,
+    color: '#534e45',
+    fontFamily: FONTS.MontserratMedium,
+  },
+  tripIDTxt: {
+    fontSize: 12,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+  },
+  cardContentBoxRow4b: {
+    flexDirection: "row",
+  },
+  tripDateTxt: {
+    fontSize: 12,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratMedium,
+  },
+  cardContentBoxRow4bRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginLeft: 20
+  },
+  cardContentBoxRow4bRowCircle: {
+    width: 22,
+    height: 22,
+    borderRadius: 22,
+    ...helpersCSS.Mid,
+    borderWidth: 1.5,
+    borderColor: '#757575',
+  },
+  cardContentBoxRow4bRowCircleTxt: {
+    fontSize: 12,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratBold,
+    marginTop: -1,
+  },
+});
+
+export const PartnerLoadDetailsScreenStyles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fafafa",
+    width: "100%",
+    height: "100%",
+  },
+  headingBox: {
+    padding: 16,
+  },
+  headingTxt: {
+    fontSize: 16,
+    color: '#534e45',
+    fontFamily: FONTS.MontserratBold,
+    marginBottom: 4,
+  },
+  imageTotalBoxRowTopTxt: {
+    fontSize: 18,
+    color: '#7c7376',
+    fontFamily: FONTS.MontserratSemiBold,
+    marginHorizontal: 16,
+    marginBottom: -8,
+  },
+  imageTotalBoxRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginHorizontal: 16,
+  },
+  imageTotalBox: {
+    backgroundColor: COLORS.WHITE,
+    width: 80,
+    height: 48,
+    flexDirection: "row",
+    ...helpersCSS.Mid,
+    borderWidth: 1,
+    borderColor: COLORS.PRIMARY,
+    borderRadius: 9,
+  },
+  imageTotalBoxTxt: {
+    fontSize: 12,
+    color: COLORS.PRIMARY,
+    fontFamily: FONTS.MontserratBold,
+    marginLeft: 12,
+  },
+
+  orSeperationBox: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  orSeperationLine: {
+    flex:1,
+    borderBottomWidth: 2,
+    borderBottomColor: "#d1d1d1",
+    borderStyle: "dashed",
+  },
+  orSeperationLineTxt: {
+    fontSize: 12,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+  },
+  textIPHeadingTxt: {
+    fontSize: 10,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+    marginBottom: 5,
+  },
+  textIPTxt: {
+    height: 40,
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratMedium,
+    paddingBottom: -4,
+    marginBottom: 15,
+    borderBottomWidth: 2,
+    borderBottomColor: '#e3e3e3',
+  },
+  textIPNumberRowBox: {
+    flexDirection: "row"
+  },
+  textIPNumber1Txt: {
+    width: 27.5,
+    height: 40,
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratMedium,
+    paddingBottom: -4,
+    marginBottom: 15,
+    borderBottomWidth: 2,
+    borderBottomColor: '#e3e3e3',
+  },
+  textIPNumberSeperatorBox: {
+    marginTop: "auto",
+    marginBottom: "auto"
+  },
+  textIPNumberSeperatorTxt: {
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratBold,
+    marginHorizontal: 7,
+  },
+  textIPNumber2Txt: {
+    width: 37.5,
+    height: 40,
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratMedium,
+    paddingBottom: -4,
+    marginBottom: 15,
+    borderBottomWidth: 2,
+    borderBottomColor: '#e3e3e3',
   },
 });

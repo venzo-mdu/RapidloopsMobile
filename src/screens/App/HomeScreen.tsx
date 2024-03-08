@@ -1,12 +1,12 @@
-import { View, Text, SafeAreaView, ImageBackground, Image, ScrollView, FlatList, RefreshControl } from 'react-native'
-import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
-import StatusBarCustom from '../../components/StatusBarCustom';
-import { API, COLORS, ICONS, IMAGEBASEURL, IMAGES, getStatusBarHeight } from '../../helpers/custom';
-import { HomeScreenStyles } from './AppStyles';
 import moment from "moment";
+import React, { useEffect, useState } from 'react';
+import { FlatList, Image, ImageBackground, RefreshControl, Text, View } from 'react-native';
+import { launchImageLibrary } from 'react-native-image-picker';
 import { NOTIFICATION } from '..';
-import {launchImageLibrary} from 'react-native-image-picker';
+import StatusBarCustom from '../../components/StatusBarCustom';
+import { API, COLORS, IMAGEBASEURL, IMAGES } from '../../helpers/custom';
+import { HomeScreenStyles } from './AppStyles';
 
 const HomeScreen = () => {
 

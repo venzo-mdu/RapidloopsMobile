@@ -33,6 +33,10 @@ export const IMAGES = {
   USERCOVERBG : require(ImagePath + 'user_cover_bg.jpeg'),
   LOADSDETAILSBG : require(ImagePath + 'loads_details_bg.png'),
   USERPROFILE : require(ImagePath + 'profile.png'),
+  APPLOGINLOGOWHITE : require(ImagePath + 'rapidloop_logo_white.png'),
+  PARTNERCOVERBGIMG : require(ImagePath + 'partner_cover_img.png'),
+  PARTNERPROFILEIMG : require(ImagePath + 'partner_profile_img.png'),
+  
 };
 
 export const ICONS = {
@@ -69,6 +73,13 @@ export const ICONS = {
   LIGHTGREYUSER : require(IconPath + 'user_lightgrey.png'),
   LIGHTGREYEYE : require(IconPath + 'eye_lightgrey.png'),
   BLACKDROPDOWN : require(IconPath + 'caret-down.png'),
+  WHITELOGOUT : require(IconPath + 'white_logout.png'),
+  GREYCAMERA : require(IconPath + 'grey_camera.png'),
+  BLACKSEARCH : require(IconPath + 'search_black.png'),
+  BLACKCARSTEERING : require(IconPath + 'black_car_steering_wheel.png'),
+  BLACKPICKUP : require(IconPath + 'black_pickup_truck.png'),
+  BLACKBIGCAMERA : require(IconPath + 'black_camera_big.png'),
+  
 };
 
 // Function to get status bar height

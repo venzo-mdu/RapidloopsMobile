@@ -1,10 +1,12 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { DRAWERHOME, LAUNCH, PHONENUMBERLOGIN, PHONENUMBEROTP } from '../screens';
+import { DRAWERHOME, LAUNCH, PARTNERDRAWERHOME, PARTNERTABHOME, PHONENUMBERLOGIN, PHONENUMBEROTP } from '../screens';
 import LaunchScreen from '../screens/Auth/LaunchScreen';
 import PhoneNumberLoginScreen from '../screens/Auth/PhoneNumberLoginScreen';
 import PhoneNumberOTPScreen from '../screens/Auth/PhoneNumberOTPScreen';
 import DrawerHomeNavigator from './DrawerHomeNavigator';
+import PartnerDrawerHomeNavigator from './PartnerDrawerHomeNavigator';
+import PartnerTabNavigator from './PartnerTabNavigator';
 
 const AuthNavigator = () => {
 
@@ -21,6 +23,7 @@ const AuthNavigator = () => {
       <Stack.Screen name={PHONENUMBEROTP} component={PhoneNumberOTPScreen} />
 
       <Stack.Screen name={DRAWERHOME} component={DrawerHomeNavigator} />
+      <Stack.Screen name={PARTNERTABHOME} component={PartnerTabNavigator} />
     </Stack.Navigator>
   )
 }

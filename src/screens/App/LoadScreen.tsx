@@ -7,6 +7,7 @@ import { API, COLORS, FONTS, ICONS, IMAGES } from '../../helpers/custom'
 import { CompanyInfoScreenStyles, HomeScreenStyles, LoadListScreenStyles, UserScreenStyles } from './AppStyles'
 import { LOADDETAILS, NOTIFICATION } from '..'
 import DropdownBox from '../../components/DropdownBox'
+import CustomDropDown from '../../components/CustomDropDown'
 
 const LoadScreen = () => {
 
@@ -149,6 +150,7 @@ const LoadScreen = () => {
     setIsFocus(false);
     
     await getDataFn(selectedShipper?.value, item?.value);
+    console.log("1")
   };
 
   const [showSearch, setShowSearch] = useState(false);
@@ -258,7 +260,7 @@ const LoadScreen = () => {
         </View>
 
         <View style={[LoadListScreenStyles.scrollBox, {flexDirection: "row", justifyContent: "space-between", marginHorizontal: 8, marginBottom: 16}]}>
-          <Dropdown
+          {/* <Dropdown
             data={ALLACTIVESHIPPERLIST}
             labelField="label"
             valueField="value"
@@ -282,9 +284,9 @@ const LoadScreen = () => {
             renderRightIcon={() => (
               <DropdownBox />
             )}
-          />
+          /> */}
 
-          <Dropdown
+          {/* <Dropdown
             data={ALLLOADINGPOINTLIST}
             labelField="label"
             valueField="value"
@@ -308,6 +310,22 @@ const LoadScreen = () => {
             renderRightIcon={() => (
               <DropdownBox />
             )}
+          /> */}
+
+          <CustomDropDown
+            DATA={ALLACTIVESHIPPERLIST}
+            dropdownStyle={LoadListScreenStyles.dropdown1}
+            value={selectedShipper}
+            placeholder={'All Shippers'}
+            onChange={filterBasedOnShippersFn}
+          />
+
+          <CustomDropDown
+            DATA={ALLLOADINGPOINTLIST}
+            dropdownStyle={LoadListScreenStyles.dropdown2}
+            value={selectedLoadingPoint?.label}
+            placeholder={'Loading Point'}
+            onChange={filterBasedOnLoadingPointFn}
           />
         </View>
 

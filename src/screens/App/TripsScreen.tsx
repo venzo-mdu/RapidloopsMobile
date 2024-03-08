@@ -9,6 +9,7 @@ import moment from 'moment';
 import { NOTIFICATION } from '..';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import DropdownBox from '../../components/DropdownBox';
+import CustomDropDown from '../../components/CustomDropDown';
 
 const TripsScreen = () => {
 
@@ -375,7 +376,7 @@ const TripsScreen = () => {
         </View>
 
         <View style={[TripsScreenStyles.scrollBox, {flexDirection: "row", justifyContent: "space-between", marginHorizontal: 8, marginBottom: 10}]}>
-          <Dropdown
+          {/* <Dropdown
             data={ALLACTIVESHIPPERLIST}
             labelField="label"
             valueField="value"
@@ -425,6 +426,22 @@ const TripsScreen = () => {
             renderRightIcon={() => (
               <DropdownBox />
             )}
+          /> */}
+
+          <CustomDropDown
+            DATA={ALLACTIVESHIPPERLIST}
+            dropdownStyle={LoadListScreenStyles.dropdown1}
+            value={selectedShipper}
+            placeholder={ALLACTIVESHIPPERLIST[0]?.label}
+            onChange={filterBasedOnShipperFn}
+          />
+
+          <CustomDropDown
+            DATA={ALLMATERIALLIST}
+            dropdownStyle={LoadListScreenStyles.dropdown2}
+            value={selectedMaterial}
+            placeholder={ALLMATERIALLIST[0]?.label}
+            onChange={filterBasedOnMaterialFn}
           />
         </View>
 
@@ -437,7 +454,15 @@ const TripsScreen = () => {
             <Text style={TripsScreenStyles.calendarBoxValueTxt}>{moment(maximumDate).format("DD/MM/YY")}</Text>
           </View>
 
-          <Dropdown
+          <CustomDropDown
+            DATA={ALLTRUCKSLIST}
+            dropdownStyle={LoadListScreenStyles.dropdown2}
+            value={selectedTruck?.value}
+            placeholder={ALLTRUCKSLIST[0]?.label}
+            onChange={filterBasedOnTrucksFn}
+          />
+
+          {/* <Dropdown
             data={ALLTRUCKSLIST}
             labelField="label"
             valueField="value"
@@ -460,7 +485,7 @@ const TripsScreen = () => {
             renderRightIcon={() => (
               <DropdownBox />
             )}
-          />
+          /> */}
         </View>
         {/* #f58331 */}
 
