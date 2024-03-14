@@ -9,7 +9,7 @@ import Clipboard from '@react-native-clipboard/clipboard';
 import { DRAWERHOME, PARTNERDRAWERHOME, PARTNERTABHOME } from '..';
 import { loginverifyOtp } from '../../function/firebaseFunction/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import DeviceInfo from 'react-native-device-info';
 
 const PhoneNumberOTPScreen = (props) => {
 
@@ -42,6 +42,38 @@ const PhoneNumberOTPScreen = (props) => {
       AsyncStorage.setItem('USERID', response?.userData?.uid);
       AsyncStorage.setItem('PHONENUM',  props.route.params?.phoneNum);
 
+      console.log("first : ", response?.tokenResponse?.idToken, response?.userData?.uid);
+      // navigation.navigate(PARTNERTABHOME);
+
+      const DeviceId = await DeviceInfo.getUniqueId();
+
+      // try {
+      //   const data = JSON.stringify({
+      //     "userId" : response?.userData?.uid,
+      //     "deviceId" : DeviceId
+      //   });
+
+      //   fetch(API?.PartnerUpdateDeviceId, {
+      //     method: 'POST',
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //       'Authorization': 'Bearer ' + response?.tokenResponse?.idToken,
+      //     },
+      //     body: data,
+      //   })
+      //   .then((response) => response.json())
+      //   .then((responseJson) => {
+      //     console.log("responseJson : ",responseJson);
+
+      //     navigation.navigate(PARTNERTABHOME);
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
+      // } catch (error) {
+      //   console.error("catch : ", error);
+      // }
+
       try {
         fetch(API.TruckerData + "?truckerPhoneNumber=" + props.route.params?.phoneNum, {
           method: 'GET',
@@ -56,8 +88,7 @@ const PhoneNumberOTPScreen = (props) => {
             global.COMPANYID = responseJson?.companyInfo?.companyId
             AsyncStorage.setItem('COMPANYID', responseJson?.companyInfo?.companyId);
             console.warn("responseJson : ",responseJson);
-            // navigation.navigate(DRAWERHOME);
-            navigation.navigate(PARTNERTABHOME);
+            navigation.navigate(DRAWERHOME);
           }
         })
         .catch((error) => {

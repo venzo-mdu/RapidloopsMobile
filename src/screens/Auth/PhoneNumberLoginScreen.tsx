@@ -30,10 +30,16 @@ const PhoneNumberLoginScreen = () => {
     } else {
       const phoneNum = phoneNumber;
       const res = await loginmobile(phoneNum, recaptchaVerifier);
-      const verificationId = res?.verificationId;
-      setPhoneNumber();
-  
-      navigation.navigate(PHONENUMBEROTP, {phoneNum, verificationId});
+      console.warn("res : ",res)
+
+      if(res?.verificationId != ""){
+        const verificationId = res?.verificationId;
+        setPhoneNumber();
+    
+        navigation.navigate(PHONENUMBEROTP, {phoneNum, verificationId});
+      } else {
+        ToastAndroid.show('Enter valid phone number', ToastAndroid.SHORT);
+      }
       
     }
   }

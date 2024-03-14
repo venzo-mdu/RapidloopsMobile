@@ -79,7 +79,7 @@ export const ICONS = {
   BLACKCARSTEERING : require(IconPath + 'black_car_steering_wheel.png'),
   BLACKPICKUP : require(IconPath + 'black_pickup_truck.png'),
   BLACKBIGCAMERA : require(IconPath + 'black_camera_big.png'),
-  
+  REDROUNDABOUT : require(IconPath + 'red_roundabout.png'),
 };
 
 // Function to get status bar height
@@ -156,6 +156,15 @@ export const API = {
   LoadingPointList: BaseURL + '/mobile/load/getAllLoadingPoints',
   AllTrucksList: BaseURL + '/mobile/fleet/trucksByCompany',
   AssignTruck: BaseURL + '/mobile/trip/assignTrip',
+  
+  PartnerUpdateDeviceId : BaseURL + '/mobile/partner/updateDeviceId',
+  PartnerDashboard : BaseURL + '/mobile/partner/dashboard',
+  PartnerAccessAreas : BaseURL + '/mobile/partner/accessAreas',
+  PartnerLoadList : BaseURL + '/mobile/partner/getLoads/v2',
+  PartnerLoadOne : BaseURL + '/mobile/partner/trip/previousTripData',
+  PartnerGetTrucks : BaseURL + '/mobile/partner/getTrucks',
+  
+  PartnerTripList : BaseURL + '/mobile/partner/getTrips/v2',
   
 };
 

@@ -35,7 +35,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               accessibilityLabel={options.tabBarAccessibilityLabel}
               testID={options.tabBarTestID}
               onPress={onPress}
-              style={CustomTabBarStyles.individualTab}
+              style={[CustomTabBarStyles.individualTab, index == 0 ? {borderTopLeftRadius: 20,} : null, index == 2 ? {borderTopRightRadius: 20,} : null]}
             >
               {index == 0 ? (
                 <View>
@@ -77,17 +77,22 @@ export default CustomTabBar;
 
 const CustomTabBarStyles = StyleSheet.create({
   container: { 
-    backgroundColor: COLORS.WHITE,
-    height: Platform.OS == "ios" ? 96 : 64, // add 24
+    backgroundColor: "transparent",
+    // height: Platform.OS == "ios" ? 96 : 64, // add 24
+    height: 0,
     flexDirection: 'row',
     paddingBottom: Platform.OS == "ios" ? 12 : 0, // add 12
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    bottom:64,
+    // borderTopLeftRadius: 20,
+    // borderTopRightRadius: 20,
+    // backgroundColor: "pink"
   },
   individualTab: { 
+    backgroundColor: COLORS.WHITE,
+    height: Platform.OS == "ios" ? 96 : 64, // add 24
     flex: 1, 
     justifyContent: 'center', 
     alignItems: 'center',
-    marginTop: 4,
+    paddingTop: 4,
   }
 })

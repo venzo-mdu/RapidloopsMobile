@@ -19,48 +19,53 @@ const LaunchScreen = () => {
 
   const getDataFn = async () => {
 
-    navigation.navigate(PARTNERTABHOME);
-    // var token = await AsyncStorage.getItem('TOKEN');
+    var token = await AsyncStorage.getItem('TOKEN');
+    console.log("launcg token : ",token)
 
-    // if(token != null) {
+    if(token != null) {
 
-    //   var companyId = await AsyncStorage.getItem('COMPANYID');  
-    //   var userId = await AsyncStorage.getItem('USERID');  
-    //   var phoneNum = await AsyncStorage.getItem('PHONENUM');
+      var companyId = await AsyncStorage.getItem('COMPANYID');  
+      var userId = await AsyncStorage.getItem('USERID');  
+      var phoneNum = await AsyncStorage.getItem('PHONENUM');
+      
+      global.TOKEN = token;
+      global.COMPANYID = companyId;
+      global.USERID = userId;
+
+      navigation.navigate(PARTNERTABHOME);
   
-    //   try {
-    //     fetch(API.TruckerData + "?truckerPhoneNumber=" + phoneNum, {
-    //       method: 'GET',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //         'Authorization': 'Bearer ' + token,
-    //       }
-    //     })
-    //     .then((response) => response.json())
-    //     .then((responseJson) => {
+      // try {
+      //   fetch(API.TruckerData + "?truckerPhoneNumber=" + phoneNum, {
+      //     method: 'GET',
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //       'Authorization': 'Bearer ' + token,
+      //     }
+      //   })
+      //   .then((response) => response.json())
+      //   .then((responseJson) => {
 
-    //       if(responseJson?.success) {
-    //         global.TOKEN = token;
-    //         global.COMPANYID = companyId;
-    //         global.USERID = userId;
+      //     if(responseJson?.success) {
+      //       global.TOKEN = token;
+      //       global.COMPANYID = companyId;
+      //       global.USERID = userId;
   
-    //         // navigation.navigate(DRAWERHOME);
-    //         navigation.navigate(PARTNERTABHOME);
-    //       } else {
-    //         navigation.navigate(PHONENUMBERLOGIN);
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //       navigation.navigate(PHONENUMBERLOGIN);
-    //     });
-    //   } catch (error) {
-    //     console.error("catch : ", error);
-    //     navigation.navigate(PHONENUMBERLOGIN);
-    //   }
-    // } else {
-    //   navigation.navigate(PHONENUMBERLOGIN);
-    // }
+      //       navigation.navigate(DRAWERHOME);
+      //     } else {
+      //       navigation.navigate(PHONENUMBERLOGIN);
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //     navigation.navigate(PHONENUMBERLOGIN);
+      //   });
+      // } catch (error) {
+      //   console.error("catch : ", error);
+      //   navigation.navigate(PHONENUMBERLOGIN);
+      // }
+    } else {
+      navigation.navigate(PHONENUMBERLOGIN);
+    }
   };
 
   return (

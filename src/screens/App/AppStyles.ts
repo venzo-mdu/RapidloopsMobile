@@ -661,7 +661,7 @@ export const TripsScreenStyles = StyleSheet.create({
   cardRowBoxDownloadBox: {
     backgroundColor: COLORS.PRIMARY,
     width: 36,
-    height: 36,
+    height: 38,
     ...helpersCSS.Mid,
 
     marginLeft: 6,
@@ -1042,7 +1042,7 @@ export const LoadDetailsScreenStyles = StyleSheet.create({
   cardBox2ProfileBox: {
     backgroundColor: '#cfcfcf',
     width: 36,
-    height: 36,
+    height: 38,
     ...helpersCSS.Mid,
     marginRight: 9,
     borderRadius: 9,
@@ -1373,13 +1373,16 @@ export const PartnerDashboardScreenStyles = StyleSheet.create({
   partnerProfileImgBox: {
     width: 104, 
     height: 104, 
-    borderRadius: 104, 
+    ...helpersCSS.Mid,
+    borderWidth: 1,
+    borderColor: "#acacac",
+    borderRadius: 104,
   },
   partnerProfileImg: {
     backgroundColor: COLORS.WHITE,
-    width: 104, 
-    height: 104, 
-    borderRadius: 104,
+    width: 100, 
+    height: 100, 
+    borderRadius: 100,
   },
   partnerProfileImgEditBox: {
     backgroundColor: COLORS.WHITE,
@@ -1494,7 +1497,7 @@ export const PartnerLoadsScreenStyles = StyleSheet.create({
   },
   searchIcnBox: {
     width: 32,
-    height: 36,
+    height: 38,
     ...helpersCSS.Mid,
   },
   dropdown1: {
@@ -1507,6 +1510,24 @@ export const PartnerLoadsScreenStyles = StyleSheet.create({
     marginTop: 8,
     borderWidth: 2,
     borderColor: COLORS.WHITE,
+  },
+  fakeDropdown1: {
+    backgroundColor: '#e3c484',
+    width: (WD - 16),
+    height: 40,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingLeft: 4,
+    paddingRight: 4,
+    marginHorizontal: 8,
+    marginTop: 8,
+    borderWidth: 2,
+    borderColor: COLORS.WHITE,
+  },
+  fakeDropdown1TextStyle: {
+    fontSize: 12,
+    color: COLORS.GREY,
+    fontFamily: FONTS.MontserratSemiBold,
   },
   cardContentBox: {
     backgroundColor: COLORS.WHITE,
@@ -1569,6 +1590,37 @@ export const PartnerLoadsScreenStyles = StyleSheet.create({
     color: '#534e45',
     fontFamily: FONTS.MontserratBold,
   },
+
+  shipperdropContainer: {
+    paddingHorizontal: 8,
+    paddingVertical: 12,
+  },
+  shipperdropTxt1: {
+    fontSize: 16,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratBold,
+    marginBottom: 6
+  },
+  shipperdropTxt2Row: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  shipperdropTxt2: {
+    fontSize: 16,
+    color: '#737270',
+    fontFamily: FONTS.MontserratSemiBold,
+  },
+
+  emptyBox: {
+    flex: 1,
+    ...helpersCSS.Mid,
+    marginBottom: 64,
+  },
+  emptyBoxTxt: {
+    fontSize: 16,
+    color: COLORS.WHITE,
+    fontFamily: FONTS.MontserratSemiBold,
+  },
 });
 
 export const PartnerTripsScreenStyles = StyleSheet.create({
@@ -1597,9 +1649,13 @@ export const PartnerTripsScreenStyles = StyleSheet.create({
     marginTop: 2,
   },
   vehicleNoTxt1: {
+    flex: 1,
     fontSize: 12,
     color: '#737270',
     fontFamily: FONTS.MontserratMedium,
+    textAlign: "right",
+    marginRight: 4,
+    marginTop: 2,
   },
   cardContentBoxRow2: {
     flexDirection: "row",
@@ -1609,6 +1665,15 @@ export const PartnerTripsScreenStyles = StyleSheet.create({
     fontSize: 12,
     color: '#737270',
     fontFamily: FONTS.MontserratRegular,
+  },
+  cardContentBoxRow2a: {
+    flex: 1,
+  },
+  cardContentBoxRow2b: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    marginTop: 2,
   },
   cardContentBoxRow3: {
     flexDirection: "row",
@@ -1624,9 +1689,12 @@ export const PartnerTripsScreenStyles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    height: 40,
   },
   cardContentBoxRow4a: {
+    height: 40,
     flexDirection: "column",
+    justifyContent: "space-between",
   },
   materialTxt: {
     fontSize: 14,
@@ -1644,17 +1712,42 @@ export const PartnerTripsScreenStyles = StyleSheet.create({
     fontFamily: FONTS.MontserratMedium,
   },
   cardContentBoxRow4b: {
+    height: 40,
     flexDirection: "row",
+  },
+  cardContentBoxRow4ba: {
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   tripDateTxt: {
-    fontSize: 12,
+    fontSize: 13,
     color: COLORS.BLACK,
     fontFamily: FONTS.MontserratMedium,
+    textAlign: "center",
+  },
+  shipperRefNumberTxt: {
+    fontSize: 12,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+    textAlign: "center",
   },
   cardContentBoxRow4bRow: {
+    height: 40,
     flexDirection: "row",
     justifyContent: "space-between",
-    marginLeft: 20
+    marginLeft: 20,
+  },
+  cardContentBoxRow4bRowaa: {
+    height: 40,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  cardContentBoxRow4bRowCircleR: {
+    width: 22,
+    height: 22,
+    borderRadius: 22,
+    ...helpersCSS.Mid,
   },
   cardContentBoxRow4bRowCircle: {
     width: 22,
@@ -1664,11 +1757,24 @@ export const PartnerTripsScreenStyles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: '#757575',
   },
-  cardContentBoxRow4bRowCircleTxt: {
-    fontSize: 12,
+  cardContentBoxRow4bRowCircleTxtB: {
+    fontSize: 10,
     color: COLORS.BLACK,
     fontFamily: FONTS.MontserratBold,
+    marginLeft: 2,
+    marginTop: -2,
+  },
+  cardContentBoxRow4bRowCircleTxtW: {
+    fontSize: 12,
+    color: COLORS.WHITE,
+    fontFamily: FONTS.MontserratBold,
     marginTop: -1,
+  },
+  loadingValueTxt: {
+    fontSize: 12,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+    textAlign: "center",
   },
 });
 
@@ -1738,11 +1844,72 @@ export const PartnerLoadDetailsScreenStyles = StyleSheet.create({
     fontFamily: FONTS.MontserratMedium,
     marginBottom: 5,
   },
-  textIPTxt: {
+  searchIPTxtRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 15,
+    borderBottomWidth: 2,
+    borderBottomColor: '#e3e3e3',
+  },
+  searchIPTxt: {
+    // width: "100%",
     height: 40,
     fontSize: 14,
     color: COLORS.BLACK,
     fontFamily: FONTS.MontserratMedium,
+    paddingBottom: -4,
+  },
+  customDropdown: {
+    position: 'absolute',
+    zIndex: 1,
+    backgroundColor: COLORS.WHITE,
+    top: 50, // Adjust this value according to your layout
+    width: WD - (16 * 2),
+    maxHeight: (WD - (16 * 2)) * 0.6,
+    marginTop: -15,
+    borderRadius: 3,
+    ...helpersCSS.shadow3,
+  },
+  customDropdownContentRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 4,
+    paddingVertical: 4,
+  },
+  customDropdownContentRow1: {
+    // flex: 3,
+  },
+  customDropdownContentRow2: {
+    // flex: 2,
+    alignItems: "flex-end",
+  },
+  customDropdownContentRowTxt1: {
+    fontSize: 14,
+    color: COLORS.PRIMARY,
+    fontFamily: FONTS.MontserratBold,
+  },
+  customDropdownContentRowTxt2: {
+    fontSize: 12,
+    color: '#737270',
+    fontFamily: FONTS.MontserratSemiBold,
+  },
+  customDropdownContentRowTxt3: {
+    fontSize: 12,
+    color: '#534e45',
+    fontFamily: FONTS.MontserratSemiBold,
+  },
+  customDropdownContentRowTxt4: {
+    fontSize: 12,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratRegular,
+  },
+  textIPTxt: {
+    height: 40,
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratSemiBold,
     paddingBottom: -4,
     marginBottom: 15,
     borderBottomWidth: 2,
@@ -1782,5 +1949,90 @@ export const PartnerLoadDetailsScreenStyles = StyleSheet.create({
     marginBottom: 15,
     borderBottomWidth: 2,
     borderBottomColor: '#e3e3e3',
+  },
+});
+
+export const PartnerPODScreenStyles = StyleSheet.create({
+  headingTxt: {
+    fontSize: 28,
+    color: COLORS.WHITE,
+    fontFamily: FONTS.Serif72BetaRegular,
+    textAlign: "center",
+    marginTop: 20,
+  },
+  searchBGImgBox: {
+    backgroundColor: COLORS.PRIMARY,
+    width: WD,
+    height: 160,
+  },
+  searchBGImg: {
+    width: WD,
+    height: 152,
+  },
+  tonBoxRow: {
+    flexDirection: "row",
+    alignContent: "center",
+    justifyContent:"center",
+    marginTop: 32,
+  },
+  tonBox: {
+    backgroundColor: COLORS.WHITE,
+    width: WD - 64 - 64,
+    height: 50,
+    alignSelf: "center",
+    borderRadius: 9,
+  },
+  searchIPTxtBox: {
+    flex: 1,
+    height: 38,
+    fontSize: 14,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratSemiBold,
+    textAlign: "center"
+  },
+  tonBoxRowTxtBox: {
+    width: 64,
+    ...helpersCSS.Mid,
+  },
+  tonBoxRowTxt: {
+    backgroundColor: COLORS.PRIMARY,
+    width: 64,
+    fontSize: 16,
+    color: COLORS.WHITE,
+    fontFamily: FONTS.Serif72BetaRegular,
+    textAlign: "center",
+  },
+  cameraCardBox: {
+    backgroundColor: COLORS.WHITE,
+    height: 134,
+    alignItems: "center",
+    justifyContent: "flex-end",
+    marginHorizontal: 48,
+    marginBottom: 16,
+    borderRadius: 9,
+    ...helpersCSS.shadow3,
+  },
+  cameraCardBoxTxt: {
+    fontSize: 18,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratMedium,
+    textAlign: "center",
+    marginBottom: 16,
+  },
+  okBtnBox: {
+    backgroundColor: COLORS.WHITE,
+    width: 128,
+    height: 50,
+    alignSelf: "center",
+    ...helpersCSS.Mid,
+    marginTop: 16,
+    marginBottom: 16,
+    borderRadius: 9,
+    ...helpersCSS.shadow3,
+  },
+  okBtnBoxTxt: {
+    fontSize: 18,
+    color: COLORS.BLACK,
+    fontFamily: FONTS.MontserratBold,
   },
 });

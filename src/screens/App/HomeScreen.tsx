@@ -54,7 +54,9 @@ const HomeScreen = () => {
 
     var res;
 
-    await launchImageLibrary(options, (response) => {      
+    await launchImageLibrary(options, (response) => { 
+      console.log("picker response :: ",response);
+
       if (response.didCancel) {
         console.error('User cancelled image picker');
       } else if (response.error) {
@@ -63,6 +65,7 @@ const HomeScreen = () => {
         res = response?.assets[0]?.uri;
       }
     });
+    console.log("res response :: ",res);
 
     try {
 
@@ -71,6 +74,8 @@ const HomeScreen = () => {
         "docExt" : "jpeg",
         "imageType" : "userProfile",
       });
+
+      console.log("DATA : ",data);
     
       await fetch(API?.DashboardIMG, {
         method: 'PUT',
@@ -173,7 +178,7 @@ const HomeScreen = () => {
           renderItem={({item, index}) => (
             <>
               <View style={HomeScreenStyles.userBGImgBox}>
-                <View onTouchEnd={dashboardDeleteImageFn} style={HomeScreenStyles.userProfileImgBox}>
+                <View onTouchEnd={uploadImgFn} style={HomeScreenStyles.userProfileImgBox}>
                 {/* <Image source={{uri : "https://hadrondev.blob.core.windows.net/hadron-rapidloops-com/user/userProfile-c352fe9f-a2e6-4642-8577-4918b14ffac1.jpg"}} style={HomeScreenStyles.userProfileCoverImg} /> */}
                   <Image source={{uri : IMAGEBASEURL + item?.userDetail?.truckerProfileImage}} style={HomeScreenStyles.userProfileImg} />
                 </View>

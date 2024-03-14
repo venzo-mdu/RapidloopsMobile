@@ -33,5 +33,6 @@ export const PARTNERTRIPSSTACK = 'Trips'
 
 export const PARTNERDASHBOARD = 'Partner Dashboard Screen';
 export const PARTNERLOAD = 'Partner Load Screen';
-export const PARTNERTRIPS = 'Partner Trips Screen';
 export const PARTNERLOADDETAILS = 'Partner Load Details Screen'
+export const PARTNERTRIPS = 'Partner Trips Screen';
+export const PARTNERPOD = 'Partner Proof of Delivery'
