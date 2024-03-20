@@ -101,7 +101,7 @@ const NotificationScreen = () => {
         </View>
 
         <FlatList data={NOTIFICATION}
-          contentContainerStyle={{paddingTop: 16, paddingBottom: 16}}
+          contentContainerStyle={{paddingTop: 16, paddingBottom: 80}}
           refreshControl={
             <RefreshControl
               refreshing={refreshing} 

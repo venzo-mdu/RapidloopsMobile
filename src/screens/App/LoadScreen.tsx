@@ -332,7 +332,7 @@ const LoadScreen = () => {
         {LOADSLIST?.length > 0 ? (
           <FlatList data={LOADSLIST}
             showsVerticalScrollIndicator={false} 
-            contentContainerStyle={{paddingBottom: 8}}
+            contentContainerStyle={{paddingBottom: 80}}
             refreshControl={
               <RefreshControl 
                 refreshing={refreshing} 

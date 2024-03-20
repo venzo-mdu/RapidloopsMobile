@@ -10,6 +10,7 @@ import { DRAWERHOME, PARTNERDRAWERHOME, PARTNERTABHOME } from '..';
 import { loginverifyOtp } from '../../function/firebaseFunction/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DeviceInfo from 'react-native-device-info';
+import messaging from '@react-native-firebase/messaging';
 
 const PhoneNumberOTPScreen = (props) => {
 
@@ -38,6 +39,9 @@ const PhoneNumberOTPScreen = (props) => {
       global.TOKEN = response?.tokenResponse?.idToken;
       global.USERID = response?.userData?.uid;
 
+      const UUID = response?.userData?.uid;
+      const AUTHTOKEN = response?.tokenResponse?.idToken;
+
       AsyncStorage.setItem('TOKEN', response?.tokenResponse?.idToken);
       AsyncStorage.setItem('USERID', response?.userData?.uid);
       AsyncStorage.setItem('PHONENUM',  props.route.params?.phoneNum);
@@ -46,26 +50,73 @@ const PhoneNumberOTPScreen = (props) => {
       // navigation.navigate(PARTNERTABHOME);
 
       const DeviceId = await DeviceInfo.getUniqueId();
+      console.log("DeviceId =",DeviceId);
+      console.log("UUID =", UUID, AUTHTOKEN);
+
+      try {
+        fetch(API?.PartnerFCM + "?refreshToken=" + fcmToken + "&id=" + UUID, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + AUTHTOKEN,
+            'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
+          }
+        })
+        .then((res1) => res1.json())
+        .then((resJson1) => {
+          console.log("FCM flow : ",resJson1);
+        })
+        .catch((err1) => {
+          console.error(err1);
+        });
+      } catch (err11) {
+        console.error("catch : ", err11);
+      }
+
+      try {
+        const data = JSON.stringify({
+          "userId" : UUID,
+          "deviceId" : DeviceId
+        });
+
+        fetch(API?.PartnerUpdateDeviceId, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + AUTHTOKEN,
+            'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
+          },
+          body: data,
+        })
+        .then((res2) => res2.json())
+        .then((resJson2) => {
+          console.log("responseJson : ",resJson2);
+
+          navigation.navigate(PARTNERTABHOME);
+        })
+        .catch((err2) => {
+          console.error(err2);
+        });
+      } catch (err22) {
+        console.error("catch : ", err22);
+      }
 
       // try {
-      //   const data = JSON.stringify({
-      //     "userId" : response?.userData?.uid,
-      //     "deviceId" : DeviceId
-      //   });
-
-      //   fetch(API?.PartnerUpdateDeviceId, {
-      //     method: 'POST',
+      //   fetch(API.TruckerData + "?truckerPhoneNumber=" + props.route.params?.phoneNum, {
+      //     method: 'GET',
       //     headers: {
       //       'Content-Type': 'application/json',
-      //       'Authorization': 'Bearer ' + response?.tokenResponse?.idToken,
-      //     },
-      //     body: data,
+      //       'Authorization': 'Bearer ' + AUTHTOKEN,
+      //     }
       //   })
-      //   .then((response) => response.json())
-      //   .then((responseJson) => {
-      //     console.log("responseJson : ",responseJson);
-
-      //     navigation.navigate(PARTNERTABHOME);
+      //   .then((res3) => res3.json())
+      //   .then((resJson3) => {
+      //     if(resJson3?.success) {
+      //       global.COMPANYID = resJson3?.companyInfo?.companyId
+      //       AsyncStorage.setItem('COMPANYID', resJson3?.companyInfo?.companyId);
+      //       console.warn("resJson3 : ",resJson3);
+      //       navigation.navigate(DRAWERHOME);
+      //     }
       //   })
       //   .catch((error) => {
       //     console.error(error);
@@ -73,30 +124,6 @@ const PhoneNumberOTPScreen = (props) => {
       // } catch (error) {
       //   console.error("catch : ", error);
       // }
-
-      try {
-        fetch(API.TruckerData + "?truckerPhoneNumber=" + props.route.params?.phoneNum, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + response?.tokenResponse?.idToken,
-          }
-        })
-        .then((response) => response.json())
-        .then((responseJson) => {
-          if(responseJson?.success) {
-            global.COMPANYID = responseJson?.companyInfo?.companyId
-            AsyncStorage.setItem('COMPANYID', responseJson?.companyInfo?.companyId);
-            console.warn("responseJson : ",responseJson);
-            navigation.navigate(DRAWERHOME);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      } catch (error) {
-        console.error("catch : ", error);
-      }
     }
   };
 
@@ -141,6 +168,18 @@ const PhoneNumberOTPScreen = (props) => {
       console.error('Error pasting from clipboard:', error);
     }
   };
+
+  useEffect(() => {
+    getMsgFn();
+  },[]);
+
+  const getMsgFn = async () => {
+    const token = await messaging().getToken();
+    setFcmToken(token);
+    console.log("token =",token);
+  };
+
+  const [fcmToken, setFcmToken] = useState("");
 
   return (
     <View style={PhoneNumberLoginStyles.container}>

@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Image, Platform } from 'react-native';
 import { COLORS, FONTS, ICONS } from '../helpers/custom';
-import { LOADDETAILS } from '../screens';
+import { LOADDETAILS, PARTNERTRIPSSTACK, TRUCKSTACK } from '../screens';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 const CustomTabBar = ({ state, descriptors, navigation }) => {
@@ -35,7 +35,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               accessibilityLabel={options.tabBarAccessibilityLabel}
               testID={options.tabBarTestID}
               onPress={onPress}
-              style={[CustomTabBarStyles.individualTab, index == 0 ? {borderTopLeftRadius: 20,} : null, index == 2 ? {borderTopRightRadius: 20,} : null]}
+              style={[CustomTabBarStyles.individualTab, index == 0 ? {borderTopLeftRadius: 20,} : null, (route.name == TRUCKSTACK) || (route.name == PARTNERTRIPSSTACK) ? {borderTopRightRadius: 20,} : null]}
             >
               {index == 0 ? (
                 <View>

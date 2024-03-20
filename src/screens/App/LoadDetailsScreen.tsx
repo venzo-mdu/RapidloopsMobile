@@ -162,7 +162,7 @@ const LoadDetailsScreen = (props) => {
           }
         />
 
-        <View style={LoadDetailsScreenStyles.bottomStickRow}>
+        <View style={[LoadDetailsScreenStyles.bottomStickRow,{paddingBottom: 80}]}>
           <View style={LoadDetailsScreenStyles.bottomStickRowBox}>
             <Text style={LoadDetailsScreenStyles.bottomStickRowBoxKeyTxt}>Available Quantity</Text>
             <Text style={LoadDetailsScreenStyles.bottomStickRowBoxValueTxt}>{availableQuantity} <Text style={LoadDetailsScreenStyles.bottomStickRowBoxValue1Txt}>MT</Text></Text>

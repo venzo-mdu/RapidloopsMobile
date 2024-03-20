@@ -1,11 +1,12 @@
-import { View, Text, Image, ScrollView, FlatList } from 'react-native'
+import { View, Text, Image, FlatList, Platform } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
+import { API, COLORS, ICONS, IMAGEBASEURL, IMAGES } from '../../helpers/custom';
 import StatusBarCustom from '../../components/StatusBarCustom';
-import { API, COLORS, ICONS, IMAGES } from '../../helpers/custom';
 import { PartnerDashboardScreenStyles } from './AppStyles';
-import { DASHBOARD } from '..';
 import moment from 'moment';
+import messaging from '@react-native-firebase/messaging';
+import DeviceInfo from 'react-native-device-info';
 
 const PartnerDashboardScreen = () => {
 
@@ -24,11 +25,14 @@ const PartnerDashboardScreen = () => {
       console.log("data : ",data);
       console.log("global.TOKEN ",global.TOKEN);
 
+      const DeviceId = await DeviceInfo.getUniqueId();
+
       await fetch(API?.PartnerDashboard, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + global.TOKEN,
+          'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
         },
         body: data,
       })
@@ -46,6 +50,15 @@ const PartnerDashboardScreen = () => {
   };
 
   const [DASHBOARDDATA, setDASHBOARDDATA] = useState(null);
+
+  useEffect(() => {
+    getMsgFn();
+  },[]);
+
+  const getMsgFn = async () => {
+    const token = await messaging().getToken();
+    console.log("token =",token);
+  };
 
   return (
     <View>

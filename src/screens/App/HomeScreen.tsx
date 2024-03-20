@@ -40,19 +40,20 @@ const HomeScreen = () => {
     }
   };
 
-  const uploadImgFn = async () => {
+  const uploadImgFn1 = async () => {
     const options = {
-      maxHeight: 2000,
-      maxWidth: 2000,
-      storageOptions: {
-        skipBackup: true,
-        path: 'images'
-      },
+      // maxHeight: 2000,
+      // maxWidth: 2000,
+      // storageOptions: {
+      //   skipBackup: true,
+      //   path: 'images'
+      // },
       mediaType: 'photo',
-      includeBase64: false,
+      // includeBase64: false,
     };
 
     var res;
+    console.log("")
 
     await launchImageLibrary(options, (response) => { 
       console.log("picker response :: ",response);
@@ -62,9 +63,10 @@ const HomeScreen = () => {
       } else if (response.error) {
         console.error('Image picker error: ', response.error);
       } else {
-        res = response?.assets[0]?.uri;
+        res = response?.assets[0];
       }
     });
+
     console.log("res response :: ",res);
 
     try {
@@ -95,6 +97,81 @@ const HomeScreen = () => {
 
     } catch (error) {
       console.error("catch : ", error);
+    }
+  };
+
+  const uploadImgFn = async () => {
+    try {
+      console.log("init");
+
+      const options = {
+        mediaType: 'photo',
+      };
+  
+      launchImageLibrary(options, async (response) => {
+        console.log("picker response :: ", response);
+  
+        if (response.didCancel) {
+          console.error('User cancelled image picker');
+        } else if (response.error) {
+          console.error('Image picker error: ', response.error);
+        } else {
+          console.warn("response =",response);
+
+          // const { uri, type } = response.assets[0];
+          // console.log("uri, type =",uri, type);
+
+          // const file = { uri, type }; // Assuming 'file' is an object with 'uri' and 'type' properties
+          // console.log("file =",file);
+
+          const results = await saveImage(API.DashboardIMG, response);
+          console.log("results =",results);
+        }
+      });
+    } catch (error) {
+      console.error("Error selecting image:", error);
+    }
+  };
+
+  const saveImage = async (url, file) => {
+    console.log("URL", url);
+    console.log("file", file);
+  
+    if (!url) return;
+  
+    try {
+      const options = {
+        headers: {
+          'Content-Type': file.type,
+          'x-ms-blob-type': 'BlockBlob',
+          'Authorization': 'Bearer ' + global.TOKEN,
+        }
+      };
+      console.log("options =",options);
+
+      const data = {
+        "docExt" : "jpg",
+        "id" : global.USERID,
+        "imageType" : "userProfile",
+      };
+      console.log("data =",data)
+  
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: options.headers,
+        body: JSON.stringify(data), // file.uri // Assuming 'file' is an object with a 'uri' property in React Native
+      });
+      console.log("PUT response=",response);
+  
+      if (!response.ok) {
+        throw new Error('Failed to upload image');
+      }
+  
+      console.log("Image uploaded successfully");
+
+      return response;
+    } catch (error) {
+      console.error("Error uploading image:", error);
     }
   };
 
@@ -166,7 +243,7 @@ const HomeScreen = () => {
         <FlatList data={DASHBOARDINFO} 
           showsVerticalScrollIndicator={false} 
           style={HomeScreenStyles.scrollContainer}
-          contentContainerStyle={{paddingBottom: 16}}
+          contentContainerStyle={{paddingBottom: 80}}
           refreshControl={
             <RefreshControl 
               refreshing={refreshing} 

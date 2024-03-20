@@ -8,8 +8,8 @@ const CustomDropDown = (props) => {
     <View>
       <Dropdown
         data={props.DATA}
-        labelField={props?.label ? props?.label : "label"}
-        valueField={props?.value ? props?.value : "value"}
+        labelField="label"
+        valueField="value"
         style={props.dropdownStyle}
         containerStyle={styles.dropdownContainerStyle}
         itemContainerStyle={styles.dropdownItemContainerStyle}
@@ -17,7 +17,7 @@ const CustomDropDown = (props) => {
         selectedTextStyle={styles.dropdownSelectedTextStyle}
         inputSearchStyle={styles.dropdownInputSearchStyle}
         iconStyle={styles.dropdownIconStyle}
-        search={props?.search ? props?.search : false}
+        search={false}
         maxHeight={200}
         itemTextStyle={styles.dropdownItemTextStyle}
         placeholder={props.placeholder}

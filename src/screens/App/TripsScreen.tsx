@@ -510,7 +510,7 @@ const TripsScreen = () => {
         {TRIPSLIST?.length > 0 ? (
           <FlatList data={TRIPSLIST}
             showsVerticalScrollIndicator={false} 
-            contentContainerStyle={{paddingBottom: 8}}
+            contentContainerStyle={{paddingBottom: 80}}
             refreshControl={
               <RefreshControl 
                 refreshing={refreshing} 

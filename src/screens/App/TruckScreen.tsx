@@ -161,7 +161,7 @@ const TruckScreen = () => {
         <FlatList data={TRUCKLIST}
           showsVerticalScrollIndicator={false} 
           style={TruckScreenStyles.scrollBox}
-          contentContainerStyle={{paddingBottom: 8}}
+          contentContainerStyle={{paddingBottom: 80}}
           renderItem={({item, index}) => 
             { 
               return (

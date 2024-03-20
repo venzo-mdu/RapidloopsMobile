@@ -1,10 +1,12 @@
-import { View, Text, Image, ScrollView, TextInput, FlatList } from 'react-native'
+import { View, Text, Image, ScrollView, TextInput, FlatList, Platform, ToastAndroid } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import { AssignTruckScreenStyles, PartnerLoadDetailsScreenStyles } from './AppStyles'
 import { API, FONTS, ICONS } from '../../helpers/custom'
 import { useNavigation } from '@react-navigation/native'
 import CustomDropDown from '../../components/CustomDropDown'
 import DropdownCustom from './test';
+import { PARTNERLOAD } from '..'
+import DeviceInfo from 'react-native-device-info'
 
 const PartnerLoadDetailsScreen = (props) => {
 
@@ -18,11 +20,15 @@ const PartnerLoadDetailsScreen = (props) => {
     const getDataFn = async (truckId) => {
         console.log(props.route.params?.loadId,truckId,"truckId")
       try {
-        await fetch(API?.PartnerLoadOne + "?loadId=" + "cdbcd7c3-04a5-4b31-94a1-6d744187c34f" + "&truckId=" + truckId + "&isTruck=" + "true", {
+
+        const DeviceId = await DeviceInfo.getUniqueId();
+
+        await fetch(API?.PartnerLoadOne + "?loadId=" + props.route.params?.loadId + "&truckId=" + truckId + "&isTruck=" + "true", {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + global.TOKEN,
+            'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
           }
         })
         .then((response) => response.json())
@@ -38,7 +44,7 @@ const PartnerLoadDetailsScreen = (props) => {
           setDRIVERCONSIGNORDATALIST(responseJson?.data);
         })
         .catch((error) => {
-          console.log(error);
+          console.log(error,"error getDataFn");
         });
       } catch (error) {
         console.error("catch : ", error);
@@ -47,11 +53,15 @@ const PartnerLoadDetailsScreen = (props) => {
 
     const getTruckFn = async (search) => {
         try { 
+
+            const DeviceId = await DeviceInfo.getUniqueId();
+
             await fetch(API?.PartnerGetTrucks + "?query=" + search + "&loadId=" + props.route.params?.loadId, {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json',
                   'Authorization': 'Bearer ' + global.TOKEN,
+                  'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
                 }
             })
             .then((response) => response.json())
@@ -60,7 +70,7 @@ const PartnerLoadDetailsScreen = (props) => {
                 setDRIVERDATALIST(responseJson?.truckInfo);
             })
             .catch((error) => {
-                console.log(error);
+                console.log(error,"error getTruckFn");
             });
         } catch (error) {
             console.error("catch : ", error);
@@ -90,17 +100,17 @@ const PartnerLoadDetailsScreen = (props) => {
     const [DRIVERCONSIGNORDATALIST, setDRIVERCONSIGNORDATALIST] = useState([]);
 
     const [truckerName, setTruckerName] = useState("");
-    const [driverName, setDriverName] = useState("");
+    const [driverName, setDriverName] = useState("Driver Test");
     const [driverMobileNo, setDriverMobileNo] = useState("");
     const [driverLicenceNo, setDriverLicenceNo] = useState("");
     const [consignor, setConsignor] = useState("");
     const [consignee, setConsignee] = useState("");
-    const [grossWeight1, setGrossWeight1] = useState("");
-    const [grossWeight2, setGrossWeight2] = useState("");
-    const [tareWeight1, setTareWeight1] = useState("");
-    const [tareWeight2, setTareWeight2] = useState("");
-    const [netWeight1, setNetWeight1] = useState("");
-    const [netWeight2, setNetWeight2] = useState("");
+    const [grossWeight1, setGrossWeight1] = useState("50");
+    const [grossWeight2, setGrossWeight2] = useState("000");
+    const [tareWeight1, setTareWeight1] = useState("45");
+    const [tareWeight2, setTareWeight2] = useState("000");
+    const [netWeight1, setNetWeight1] = useState("05");
+    const [netWeight2, setNetWeight2] = useState("000");
     const [shipperRefNo, setShipperRefNo] = useState("");
     const [vesselName, setVesselName] = useState("");
     const [eWayBillNo, setEWayBillNo] = useState("");
@@ -112,8 +122,8 @@ const PartnerLoadDetailsScreen = (props) => {
         setDriverDATA(item);
         setDriverSearch(item?.truckNumber);
         setTruckerName(item?.companyInfo?.companyName);
+        setShowDropdown1(false)
         await getDataFn(item?.id);
-        setShowDropdown(false)
     };
 
     const selectDriverNameFn = (item, index) => {
@@ -265,6 +275,113 @@ const PartnerLoadDetailsScreen = (props) => {
     const onCancelFn = () => {
         navigation.goBack();
     };
+
+    const createTripFn = async () => {
+        if(driverDATA == null) {
+            if(Platform.OS == "ios") {
+              
+            } else {
+              ToastAndroid.show('Select valid trucker', ToastAndroid.SHORT);
+            }
+        } else if(driverName == "") {
+            if(Platform.OS == "ios") {
+              
+            } else {
+              ToastAndroid.show('Enter valid driver name', ToastAndroid.SHORT);
+            }
+        } else if(driverMobileNo?.length !== 10) {
+            if(Platform.OS == "ios") {
+              
+            } else {
+              ToastAndroid.show('Enter valid driver mobile number', ToastAndroid.SHORT);
+            }
+        } else if(driverLicenceNo == "") {
+            if(Platform.OS == "ios") {
+              
+            } else {
+              ToastAndroid.show('Enter valid driver license number', ToastAndroid.SHORT);
+            }
+        } else if(consignor == "") {
+            if(Platform.OS == "ios") {
+              
+            } else {
+              ToastAndroid.show('Enter valid consignor', ToastAndroid.SHORT);
+            }
+        } else if(consignee == "") {
+            if(Platform.OS == "ios") {
+              
+            } else {
+              ToastAndroid.show('Enter valid consignee', ToastAndroid.SHORT);
+            }
+        } else if(netWeight1 == "" || netWeight2 == "") {
+          if(Platform.OS == "ios") {
+            
+          } else {
+            ToastAndroid.show('Enter valid net weight', ToastAndroid.SHORT);
+          }
+        } else if(grossWeight1 == "" || grossWeight2 == "") {
+          if(Platform.OS == "ios") {
+            
+          } else {
+            ToastAndroid.show('Enter valid gross weight', ToastAndroid.SHORT);
+          }
+        } else if(shipperRefNo == "") {
+            if(Platform.OS == "ios") {
+              
+            } else {
+              ToastAndroid.show('Enter valid shipper reference number', ToastAndroid.SHORT);
+            }
+        } else {
+          try {
+            const data = JSON.stringify({
+                "payloadback": "dream.jpg",
+                "backDocExt": "jpeg",
+                "file": {
+                    "uid": "rc-upload-1710410621280-5"
+                },
+                "front": "backrounf.jpeg",
+                "frontDocExt": "jpeg",
+                "isBackDoc": true,
+                "isFrontDoc": true,
+                "loadWeight": null,
+                "loadId": props.route.params?.loadId,
+                "netWeight": netWeight1 + "." + netWeight2,
+                "shipperRefNumber": shipperRefNo,
+                "truckId": driverDATA?.id,
+                "driverPhoneNumber": driverMobileNo,
+                "driverName": driverName,
+                "truckCapacity": grossWeight1 + "." + grossWeight2,
+            });
+
+            const DeviceId = await DeviceInfo.getUniqueId();
+          
+            await fetch(API?.PartnerCreateTrip, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + global.TOKEN,
+                'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
+              },
+              body: data
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(responseJson,"responseJson");
+                ToastAndroid.show(responseJson?.message, ToastAndroid.SHORT);
+
+                if(responseJson?.status) {
+                    navigation.navigate(PARTNERLOAD);
+                }
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+    
+          } catch (error) {
+            console.error("catch : ", error);
+          }
+        }
+      };
 
     return (
         <View style={PartnerLoadDetailsScreenStyles.container}>
@@ -595,6 +712,8 @@ const PartnerLoadDetailsScreen = (props) => {
                                 style={PartnerLoadDetailsScreenStyles.textIPNumber1Txt}
                                 placeholder={"00"}
                                 placeholderTextColor={"#646464"}
+                                keyboardType="numeric"
+                                maxLength={2}
                             />
                             <View style={PartnerLoadDetailsScreenStyles.textIPNumberSeperatorBox}>
                                 <Text style={PartnerLoadDetailsScreenStyles.textIPNumberSeperatorTxt}>.</Text>
@@ -606,6 +725,8 @@ const PartnerLoadDetailsScreen = (props) => {
                                 style={PartnerLoadDetailsScreenStyles.textIPNumber2Txt}
                                 placeholder={"000"}
                                 placeholderTextColor={"#646464"}
+                                keyboardType="numeric"
+                                maxLength={3}
                             />
                         </View>
                     </View>
@@ -631,9 +752,9 @@ const PartnerLoadDetailsScreen = (props) => {
                             placeholderTextColor={"#646464"}
                             onFocus={
                                 () => {
-                                    // if(DRIVERVESSELNAMEDATALIST?.length) {
+                                    if(DRIVERVESSELNAMEDATALIST?.length) {
                                         setShowDropdown7(true)
-                                    // }
+                                    }
                                 }
                             }
                             onBlur={() => setShowDropdown7(false)}
@@ -642,13 +763,13 @@ const PartnerLoadDetailsScreen = (props) => {
 
                     {(showDropdown7) ? (
                         <View style={[PartnerLoadDetailsScreenStyles.customDropdown, {top: 873,}]}>
-                            <FlatList data={[1]}
+                            <FlatList data={DRIVERVESSELNAMEDATALIST}
                                 style={{marginTop:0}}
                                 renderItem={({item, index}) => 
                                     { 
                                         return (
                                             <View onTouchEnd={selectConsignorFn.bind(this,item,index)} style={PartnerLoadDetailsScreenStyles.customDropdownContentRow}>
-                                                <Text style={PartnerLoadDetailsScreenStyles.customDropdownContentRowTxt1}>{index}</Text>
+                                                <Text style={PartnerLoadDetailsScreenStyles.customDropdownContentRowTxt1}>{item}</Text>
                                             </View>
                                         )
                                     }
@@ -702,7 +823,7 @@ const PartnerLoadDetailsScreen = (props) => {
                 <View onTouchEnd={onCancelFn} style={[AssignTruckScreenStyles.cancelTruckBox, {backgroundColor: null}]}>
                     <Text style={AssignTruckScreenStyles.cancelTruckBoxTxt}>Cancel</Text>
                 </View>
-                <View style={AssignTruckScreenStyles.assignTruckBox}>
+                <View onTouchEnd={createTripFn} style={AssignTruckScreenStyles.assignTruckBox}>
                     <Text style={AssignTruckScreenStyles.assignTruckBoxTxt}>Create Trip</Text>
                 </View>
             </View>

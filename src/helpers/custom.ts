@@ -133,6 +133,8 @@ export {helpersCSS};
 
 const BaseURL = 'http://uat-hadron.rapidloops.com/api';
 
+// const BaseURL = 'http://192.168.0.16:3000/api' // test
+
 export const API = {
   TruckerData : BaseURL + '/mobile/trucker/data',
   Dashboard : BaseURL + '/mobile/trucker/dashboard',
@@ -157,11 +159,13 @@ export const API = {
   AllTrucksList: BaseURL + '/mobile/fleet/trucksByCompany',
   AssignTruck: BaseURL + '/mobile/trip/assignTrip',
   
+  PartnerFCM : BaseURL + '/mobile/partner/registrationToken',
   PartnerUpdateDeviceId : BaseURL + '/mobile/partner/updateDeviceId',
   PartnerDashboard : BaseURL + '/mobile/partner/dashboard',
   PartnerAccessAreas : BaseURL + '/mobile/partner/accessAreas',
   PartnerLoadList : BaseURL + '/mobile/partner/getLoads/v2',
   PartnerLoadOne : BaseURL + '/mobile/partner/trip/previousTripData',
+  PartnerCreateTrip : BaseURL + '/mobile/partner/trip/v7/create',
   PartnerGetTrucks : BaseURL + '/mobile/partner/getTrucks',
   
   PartnerTripList : BaseURL + '/mobile/partner/getTrips/v2',

@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* RapidLoopsTruckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RapidLoopsTruckTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-RapidLoopsTruck.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-RapidLoopsTruck.a */; };
+		00E356F31AD99517003FC87E /* RapidloopsMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RapidloopsMobileTests.m */; };
+		0C80B921A6F3F58F76C31292 /* libPods-RapidloopsMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-RapidloopsMobile.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		32A1ED4A0D09438981D9F569 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3958402F4BD0476A84B5CE3A /* Montserrat-Thin.ttf */; };
-		420C92EA51F948CF8788AE73 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E3FE9AA487E4FCF9DD88C9E /* Montserrat-Black.ttf */; };
-		44A1F1C550B84520B84D267F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 168F324665E6465795422259 /* Montserrat-Bold.ttf */; };
-		7699B88040F8A987B510C191 /* libPods-RapidLoopsTruck-RapidLoopsTruckTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-RapidLoopsTruck-RapidLoopsTruckTests.a */; };
+		7699B88040F8A987B510C191 /* libPods-RapidloopsMobile-RapidloopsMobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-RapidloopsMobile-RapidloopsMobileTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8CC5420337574C5597D0C3C0 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 659D9D5ECCC74D53BDBE51E7 /* Montserrat-Light.ttf */; };
-		8F195EBE4FFA40C4927AEBD4 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F81CBF70F2EB4CE1BCF50504 /* Montserrat-SemiBold.ttf */; };
-		BB866E29011C41A1BA084729 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF2425CBB53F4AB6A33B05CA /* Montserrat-Medium.ttf */; };
-		DA063D2C9B0B4D66862003F6 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E86FCCCD8BB64A2A88758C0F /* Montserrat-SemiBoldItalic.ttf */; };
-		F41B43CA67DF48C5BA634FEE /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A19C86C095CF4E1FB5473FAC /* Montserrat-ExtraBold.ttf */; };
-		F982F0ACA55144FD99785AAB /* Serif72Beta-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 512930DAE0824847B32DE60B /* Serif72Beta-Regular.otf */; };
-		31937324D7A84F9EA9A9EB64 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA7CD069140642D1BBF2EAA1 /* Montserrat-Regular.ttf */; };
+		27BD16217AA5443AB7D3607B /* Serif72Beta-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643E0A796B4C9BB7178B9D /* Serif72Beta-Regular.otf */; };
+		7AA9806B665445D4BE571ABF /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30481D7D74AB4FD280BE07E9 /* Montserrat-Black.ttf */; };
+		70E18DD7C6C14A2D9AA05E57 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23D81E39714738B46E4044 /* Montserrat-Bold.ttf */; };
+		72B0D88EF3E0453EB38C63D6 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44CE64FE80D64286B6BB9AB9 /* Montserrat-ExtraBold.ttf */; };
+		DEDA6A520E894F6E966AE82C /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BFE44CEC7114F3DA627A32A /* Montserrat-Light.ttf */; };
+		158B07C695DB48B48D8E34AD /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E26CAAAC847A443380295BED /* Montserrat-Medium.ttf */; };
+		8E1DA555649046718EFD2F64 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B557442DF574BD1B9B9F54B /* Montserrat-Regular.ttf */; };
+		FD9070B5CC0D48E3B672096C /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15314403449D44FE80AF2B1D /* Montserrat-SemiBold.ttf */; };
+		B80A902B1249474093AFD836 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 710D4BF6C7F2485683440AC9 /* Montserrat-SemiBoldItalic.ttf */; };
+		0FA1EF39C7A0445984754954 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CECF8F3CA0848D6B71F2BFA /* Montserrat-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,38 +32,38 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = RapidLoopsTruck;
+			remoteInfo = RapidloopsMobile;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* RapidLoopsTruckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RapidLoopsTruckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* RapidloopsMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RapidloopsMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* RapidLoopsTruckTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RapidLoopsTruckTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* RapidLoopsTruck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RapidLoopsTruck.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = RapidLoopsTruck/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = RapidLoopsTruck/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RapidLoopsTruck/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RapidLoopsTruck/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RapidLoopsTruck/main.m; sourceTree = "<group>"; };
-		168F324665E6465795422259 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-RapidLoopsTruck-RapidLoopsTruckTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RapidLoopsTruck-RapidLoopsTruckTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3958402F4BD0476A84B5CE3A /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../src/assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-RapidLoopsTruck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapidLoopsTruck.debug.xcconfig"; path = "Target Support Files/Pods-RapidLoopsTruck/Pods-RapidLoopsTruck.debug.xcconfig"; sourceTree = "<group>"; };
-		3E3FE9AA487E4FCF9DD88C9E /* Montserrat-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Black.ttf"; path = "../src/assets/fonts/Montserrat-Black.ttf"; sourceTree = "<group>"; };
-		512930DAE0824847B32DE60B /* Serif72Beta-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Serif72Beta-Regular.otf"; path = "../src/assets/fonts/Serif72Beta-Regular.otf"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-RapidLoopsTruck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapidLoopsTruck.release.xcconfig"; path = "Target Support Files/Pods-RapidLoopsTruck/Pods-RapidLoopsTruck.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-RapidLoopsTruck-RapidLoopsTruckTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapidLoopsTruck-RapidLoopsTruckTests.debug.xcconfig"; path = "Target Support Files/Pods-RapidLoopsTruck-RapidLoopsTruckTests/Pods-RapidLoopsTruck-RapidLoopsTruckTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-RapidLoopsTruck.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RapidLoopsTruck.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		659D9D5ECCC74D53BDBE51E7 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.ttf"; path = "../src/assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RapidLoopsTruck/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-RapidLoopsTruck-RapidLoopsTruckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapidLoopsTruck-RapidLoopsTruckTests.release.xcconfig"; path = "Target Support Files/Pods-RapidLoopsTruck-RapidLoopsTruckTests/Pods-RapidLoopsTruck-RapidLoopsTruckTests.release.xcconfig"; sourceTree = "<group>"; };
-		A19C86C095CF4E1FB5473FAC /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraBold.ttf"; path = "../src/assets/fonts/Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
-		BF2425CBB53F4AB6A33B05CA /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Medium.ttf"; path = "../src/assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
-		E86FCCCD8BB64A2A88758C0F /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBoldItalic.ttf"; path = "../src/assets/fonts/Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* RapidloopsMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RapidloopsMobileTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* RapidloopsMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RapidloopsMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = RapidloopsMobile/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = RapidloopsMobile/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RapidloopsMobile/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RapidloopsMobile/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RapidloopsMobile/main.m; sourceTree = "<group>"; };
+		19F6CBCC0A4E27FBF8BF4A61 /* libPods-RapidloopsMobile-RapidloopsMobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RapidloopsMobile-RapidloopsMobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4392A12AC88292D35C810B /* Pods-RapidloopsMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapidloopsMobile.debug.xcconfig"; path = "Target Support Files/Pods-RapidloopsMobile/Pods-RapidloopsMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-RapidloopsMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapidloopsMobile.release.xcconfig"; path = "Target Support Files/Pods-RapidloopsMobile/Pods-RapidloopsMobile.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-RapidloopsMobile-RapidloopsMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapidloopsMobile-RapidloopsMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-RapidloopsMobile-RapidloopsMobileTests/Pods-RapidloopsMobile-RapidloopsMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DCACB8F33CDC322A6C60F78 /* libPods-RapidloopsMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RapidloopsMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RapidloopsMobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-RapidloopsMobile-RapidloopsMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RapidloopsMobile-RapidloopsMobileTests.release.xcconfig"; path = "Target Support Files/Pods-RapidloopsMobile-RapidloopsMobileTests/Pods-RapidloopsMobile-RapidloopsMobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F81CBF70F2EB4CE1BCF50504 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../src/assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
-		BA7CD069140642D1BBF2EAA1 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1C643E0A796B4C9BB7178B9D /* Serif72Beta-Regular.otf */ = {isa = PBXFileReference; name = "Serif72Beta-Regular.otf"; path = "../src/assets/fonts/Serif72Beta-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		30481D7D74AB4FD280BE07E9 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; name = "Montserrat-Black.ttf"; path = "../src/assets/fonts/Montserrat-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9D23D81E39714738B46E4044 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		44CE64FE80D64286B6BB9AB9 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Montserrat-ExtraBold.ttf"; path = "../src/assets/fonts/Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6BFE44CEC7114F3DA627A32A /* Montserrat-Light.ttf */ = {isa = PBXFileReference; name = "Montserrat-Light.ttf"; path = "../src/assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E26CAAAC847A443380295BED /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; name = "Montserrat-Medium.ttf"; path = "../src/assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8B557442DF574BD1B9B9F54B /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		15314403449D44FE80AF2B1D /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; name = "Montserrat-SemiBold.ttf"; path = "../src/assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		710D4BF6C7F2485683440AC9 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Montserrat-SemiBoldItalic.ttf"; path = "../src/assets/fonts/Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6CECF8F3CA0848D6B71F2BFA /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; name = "Montserrat-Thin.ttf"; path = "../src/assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-RapidLoopsTruck-RapidLoopsTruckTests.a in Frameworks */,
+				7699B88040F8A987B510C191 /* libPods-RapidloopsMobile-RapidloopsMobileTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,20 +79,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-RapidLoopsTruck.a in Frameworks */,
+				0C80B921A6F3F58F76C31292 /* libPods-RapidloopsMobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* RapidLoopsTruckTests */ = {
+		00E356EF1AD99517003FC87E /* RapidloopsMobileTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* RapidLoopsTruckTests.m */,
+				00E356F21AD99517003FC87E /* RapidloopsMobileTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = RapidLoopsTruckTests;
+			path = RapidloopsMobileTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -103,25 +103,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0AFCBE3013514C61B731BA69 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				3E3FE9AA487E4FCF9DD88C9E /* Montserrat-Black.ttf */,
-				168F324665E6465795422259 /* Montserrat-Bold.ttf */,
-				A19C86C095CF4E1FB5473FAC /* Montserrat-ExtraBold.ttf */,
-				659D9D5ECCC74D53BDBE51E7 /* Montserrat-Light.ttf */,
-				BF2425CBB53F4AB6A33B05CA /* Montserrat-Medium.ttf */,
-				F81CBF70F2EB4CE1BCF50504 /* Montserrat-SemiBold.ttf */,
-				E86FCCCD8BB64A2A88758C0F /* Montserrat-SemiBoldItalic.ttf */,
-				3958402F4BD0476A84B5CE3A /* Montserrat-Thin.ttf */,
-				512930DAE0824847B32DE60B /* Serif72Beta-Regular.otf */,
-				BA7CD069140642D1BBF2EAA1 /* Montserrat-Regular.ttf */,
-			);
-			name = Resources;
-			path = "";
-			sourceTree = "<group>";
-		};
-		13B07FAE1A68108700A75B9A /* RapidLoopsTruck */ = {
+		13B07FAE1A68108700A75B9A /* RapidloopsMobile */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -131,15 +113,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = RapidLoopsTruck;
+			name = RapidloopsMobile;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-RapidLoopsTruck.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-RapidLoopsTruck-RapidLoopsTruckTests.a */,
+				5DCACB8F33CDC322A6C60F78 /* libPods-RapidloopsMobile.a */,
+				19F6CBCC0A4E27FBF8BF4A61 /* libPods-RapidloopsMobile-RapidloopsMobileTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,13 +136,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* RapidLoopsTruck */,
+				13B07FAE1A68108700A75B9A /* RapidloopsMobile */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* RapidLoopsTruckTests */,
+				00E356EF1AD99517003FC87E /* RapidloopsMobileTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
-				0AFCBE3013514C61B731BA69 /* Resources */,
+				4835C7D7B6F3499F8D9090D2 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -170,8 +152,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* RapidLoopsTruck.app */,
-				00E356EE1AD99517003FC87E /* RapidLoopsTruckTests.xctest */,
+				13B07F961A680F5B00A75B9A /* RapidloopsMobile.app */,
+				00E356EE1AD99517003FC87E /* RapidloopsMobileTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,20 +161,38 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-RapidLoopsTruck.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-RapidLoopsTruck.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-RapidLoopsTruck-RapidLoopsTruckTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-RapidLoopsTruck-RapidLoopsTruckTests.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-RapidloopsMobile.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-RapidloopsMobile.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-RapidloopsMobile-RapidloopsMobileTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-RapidloopsMobile-RapidloopsMobileTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4835C7D7B6F3499F8D9090D2 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				1C643E0A796B4C9BB7178B9D /* Serif72Beta-Regular.otf */,
+				30481D7D74AB4FD280BE07E9 /* Montserrat-Black.ttf */,
+				9D23D81E39714738B46E4044 /* Montserrat-Bold.ttf */,
+				44CE64FE80D64286B6BB9AB9 /* Montserrat-ExtraBold.ttf */,
+				6BFE44CEC7114F3DA627A32A /* Montserrat-Light.ttf */,
+				E26CAAAC847A443380295BED /* Montserrat-Medium.ttf */,
+				8B557442DF574BD1B9B9F54B /* Montserrat-Regular.ttf */,
+				15314403449D44FE80AF2B1D /* Montserrat-SemiBold.ttf */,
+				710D4BF6C7F2485683440AC9 /* Montserrat-SemiBoldItalic.ttf */,
+				6CECF8F3CA0848D6B71F2BFA /* Montserrat-Thin.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* RapidLoopsTruckTests */ = {
+		00E356ED1AD99517003FC87E /* RapidloopsMobileTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "RapidLoopsTruckTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "RapidloopsMobileTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -206,14 +206,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = RapidLoopsTruckTests;
-			productName = RapidLoopsTruckTests;
-			productReference = 00E356EE1AD99517003FC87E /* RapidLoopsTruckTests.xctest */;
+			name = RapidloopsMobileTests;
+			productName = RapidloopsMobileTests;
+			productReference = 00E356EE1AD99517003FC87E /* RapidloopsMobileTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* RapidLoopsTruck */ = {
+		13B07F861A680F5B00A75B9A /* RapidloopsMobile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RapidLoopsTruck" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RapidloopsMobile" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -227,9 +227,9 @@
 			);
 			dependencies = (
 			);
-			name = RapidLoopsTruck;
-			productName = RapidLoopsTruck;
-			productReference = 13B07F961A680F5B00A75B9A /* RapidLoopsTruck.app */;
+			name = RapidloopsMobile;
+			productName = RapidloopsMobile;
+			productReference = 13B07F961A680F5B00A75B9A /* RapidloopsMobile.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -249,7 +249,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RapidLoopsTruck" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RapidloopsMobile" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -262,8 +262,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* RapidLoopsTruck */,
-				00E356ED1AD99517003FC87E /* RapidLoopsTruckTests */,
+				13B07F861A680F5B00A75B9A /* RapidloopsMobile */,
+				00E356ED1AD99517003FC87E /* RapidloopsMobileTests */,
 			);
 		};
 /* End PBXProject section */
@@ -282,16 +282,16 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				420C92EA51F948CF8788AE73 /* Montserrat-Black.ttf in Resources */,
-				44A1F1C550B84520B84D267F /* Montserrat-Bold.ttf in Resources */,
-				F41B43CA67DF48C5BA634FEE /* Montserrat-ExtraBold.ttf in Resources */,
-				8CC5420337574C5597D0C3C0 /* Montserrat-Light.ttf in Resources */,
-				BB866E29011C41A1BA084729 /* Montserrat-Medium.ttf in Resources */,
-				8F195EBE4FFA40C4927AEBD4 /* Montserrat-SemiBold.ttf in Resources */,
-				DA063D2C9B0B4D66862003F6 /* Montserrat-SemiBoldItalic.ttf in Resources */,
-				32A1ED4A0D09438981D9F569 /* Montserrat-Thin.ttf in Resources */,
-				F982F0ACA55144FD99785AAB /* Serif72Beta-Regular.otf in Resources */,
-				31937324D7A84F9EA9A9EB64 /* Montserrat-Regular.ttf in Resources */,
+				27BD16217AA5443AB7D3607B /* Serif72Beta-Regular.otf in Resources */,
+				7AA9806B665445D4BE571ABF /* Montserrat-Black.ttf in Resources */,
+				70E18DD7C6C14A2D9AA05E57 /* Montserrat-Bold.ttf in Resources */,
+				72B0D88EF3E0453EB38C63D6 /* Montserrat-ExtraBold.ttf in Resources */,
+				DEDA6A520E894F6E966AE82C /* Montserrat-Light.ttf in Resources */,
+				158B07C695DB48B48D8E34AD /* Montserrat-Medium.ttf in Resources */,
+				8E1DA555649046718EFD2F64 /* Montserrat-Regular.ttf in Resources */,
+				FD9070B5CC0D48E3B672096C /* Montserrat-SemiBold.ttf in Resources */,
+				B80A902B1249474093AFD836 /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				0FA1EF39C7A0445984754954 /* Montserrat-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,15 +320,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck/Pods-RapidLoopsTruck-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile/Pods-RapidloopsMobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck/Pods-RapidLoopsTruck-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile/Pods-RapidloopsMobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck/Pods-RapidLoopsTruck-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile/Pods-RapidloopsMobile-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -346,7 +346,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RapidLoopsTruck-RapidLoopsTruckTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RapidloopsMobile-RapidloopsMobileTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -368,7 +368,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RapidLoopsTruck-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RapidloopsMobile-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -381,15 +381,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck-RapidLoopsTruckTests/Pods-RapidLoopsTruck-RapidLoopsTruckTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile-RapidloopsMobileTests/Pods-RapidloopsMobile-RapidloopsMobileTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck-RapidLoopsTruckTests/Pods-RapidLoopsTruck-RapidLoopsTruckTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile-RapidloopsMobileTests/Pods-RapidloopsMobile-RapidloopsMobileTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck-RapidLoopsTruckTests/Pods-RapidLoopsTruck-RapidLoopsTruckTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile-RapidloopsMobileTests/Pods-RapidloopsMobile-RapidloopsMobileTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -398,15 +398,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck/Pods-RapidLoopsTruck-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile/Pods-RapidloopsMobile-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck/Pods-RapidLoopsTruck-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile/Pods-RapidloopsMobile-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck/Pods-RapidLoopsTruck-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile/Pods-RapidloopsMobile-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -415,15 +415,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck-RapidLoopsTruckTests/Pods-RapidLoopsTruck-RapidLoopsTruckTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile-RapidloopsMobileTests/Pods-RapidloopsMobile-RapidloopsMobileTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck-RapidLoopsTruckTests/Pods-RapidLoopsTruck-RapidLoopsTruckTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile-RapidloopsMobileTests/Pods-RapidloopsMobile-RapidloopsMobileTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RapidLoopsTruck-RapidLoopsTruckTests/Pods-RapidLoopsTruck-RapidLoopsTruckTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RapidloopsMobile-RapidloopsMobileTests/Pods-RapidloopsMobile-RapidloopsMobileTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -433,7 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* RapidLoopsTruckTests.m in Sources */,
+				00E356F31AD99517003FC87E /* RapidloopsMobileTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +451,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* RapidLoopsTruck */;
+			target = 13B07F861A680F5B00A75B9A /* RapidloopsMobile */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -459,14 +459,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-RapidLoopsTruck-RapidLoopsTruckTests.debug.xcconfig */;
+			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-RapidloopsMobile-RapidloopsMobileTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = RapidLoopsTruckTests/Info.plist;
+				INFOPLIST_FILE = RapidloopsMobileTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -478,19 +478,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapiddrive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RapidLoopsTruck.app/RapidLoopsTruck";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RapidloopsMobile.app/RapidloopsMobile";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-RapidLoopsTruck-RapidLoopsTruckTests.release.xcconfig */;
+			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-RapidloopsMobile-RapidloopsMobileTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = RapidLoopsTruckTests/Info.plist;
+				INFOPLIST_FILE = RapidloopsMobileTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -502,21 +502,21 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapiddrive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RapidLoopsTruck.app/RapidLoopsTruck";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RapidloopsMobile.app/RapidloopsMobile";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-RapidLoopsTruck.debug.xcconfig */;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-RapidloopsMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = RapidLoopsTruck/Info.plist;
+				INFOPLIST_FILE = RapidloopsMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -527,8 +527,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = RapidLoopsTruck;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapiddrive;
+				PRODUCT_NAME = RapidloopsMobile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -537,12 +537,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-RapidLoopsTruck.release.xcconfig */;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-RapidloopsMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = RapidLoopsTruck/Info.plist;
+				INFOPLIST_FILE = RapidloopsMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -553,8 +553,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = RapidLoopsTruck;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapiddrive;
+				PRODUCT_NAME = RapidloopsMobile;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -714,7 +714,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "RapidLoopsTruckTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "RapidloopsMobileTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -723,7 +723,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RapidLoopsTruck" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RapidloopsMobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -732,7 +732,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RapidLoopsTruck" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RapidloopsMobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

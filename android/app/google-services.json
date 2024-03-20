@@ -1,66 +1,7 @@
-// {
-//   "project_info": {
-//     "project_number": "966560453293",
-//     "project_id": "turf-booking-4d092",
-//     "storage_bucket": "turf-booking-4d092.appspot.com"
-//   },
-//   "client": [
-//     {
-//       "client_info": {
-//         "mobilesdk_app_id": "1:966560453293:android:4041dccd2bbcb8204a2c24",
-//         "android_client_info": {
-//           "package_name": "com.venzo.turfbookingapp"
-//         }
-//       },
-//       "oauth_client": [],
-//       "api_key": [
-//         {
-//           "current_key": "AIzaSyDXOkH1vv_t8f-n98CBY9BVMdMsf-mBsGk"
-//         }
-//       ],
-//       "services": {
-//         "appinvite_service": {
-//           "other_platform_oauth_client": []
-//         }
-//       }
-//     }
-//   ],
-//   "configuration_version": "1"
-// }
-
-// {
-//   "project_info": {
-//     "project_number": "165725349050",
-//     "project_id": "hadron-platform",
-//     "storage_bucket": "hadron-platform.appspot.com"
-//   },
-//   "client": [
-//     {
-//       "client_info": {
-//         "mobilesdk_app_id": "1:165725349050:web:1217d12e758f6ff8",
-//         "android_client_info": {
-//           "package_name": "com.rapidloopstruck"
-//         }
-//       },
-//       "oauth_client": [],
-//       "api_key": [
-//         {
-//           "current_key": "AIzaSyBgX3bu-3BVy9pu7l1t6cMHhB7hpJagGRk"
-//         }
-//       ],
-//       "services": {
-//         "appinvite_service": {
-//           "other_platform_oauth_client": []
-//         }
-//       }
-//     }
-//   ],
-//   "configuration_version": "1"
-// }
-
 {
   "project_info": {
     "project_number": "165725349050",
+    "firebase_url": "https://hadron-platform.firebaseio.com",
     "project_id": "hadron-platform",
     "storage_bucket": "hadron-platform.appspot.com"
   },

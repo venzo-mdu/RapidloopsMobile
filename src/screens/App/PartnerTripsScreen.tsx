@@ -1,4 +1,4 @@
-import { View, Text, Image, ImageBackground, TextInput, FlatList, findNodeHandle, UIManager, Modal } from 'react-native'
+import { View, Text, Image, ImageBackground, TextInput, FlatList, findNodeHandle, UIManager, Modal, Platform } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import StatusBarCustom from '../../components/StatusBarCustom'
 import { API, COLORS, ICONS, IMAGES, helpersCSS } from '../../helpers/custom'
@@ -7,6 +7,7 @@ import CustomDropDown from '../../components/CustomDropDown'
 import { useNavigation } from '@react-navigation/native'
 import moment from 'moment'
 import { PARTNERPOD } from '..'
+import DeviceInfo from 'react-native-device-info'
 
 const PartnerTripsScreen = () => {
 
@@ -18,11 +19,15 @@ const PartnerTripsScreen = () => {
 
   const getDataFn = async () => {
     try {
+
+      const DeviceId = await DeviceInfo.getUniqueId();
+
       await fetch(API?.PartnerAccessAreas + "?id=" + global.USERID, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + global.TOKEN,
+          'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
         }
       })
       .then((response) => response.json())
@@ -63,11 +68,15 @@ const PartnerTripsScreen = () => {
   const getLoadDataFn = async (companyId, loadingPoint, search) => {
 
     try {
+
+      const DeviceId = await DeviceInfo.getUniqueId();
+
       await fetch(API?.PartnerTripList + "?companyId=" + companyId + "&loadingPoint=" + loadingPoint + "&query=" + search + "&offset=" + 0 + "&limit=" + 10000 , {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + global.TOKEN,
+          'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
         },
       })
       .then((res) => res.json())

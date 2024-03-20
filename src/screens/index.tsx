@@ -29,7 +29,7 @@ export const PARTNERTABHOME = 'Partner Tab Home Navigator';
 
 export const PARTNERHOMESTACK = 'Home'
 export const PARTNERLOADSTACK = 'Load'
-export const PARTNERTRIPSSTACK = 'Trips'
+export const PARTNERTRIPSSTACK = 'Trip'
 
 export const PARTNERDASHBOARD = 'Partner Dashboard Screen';
 export const PARTNERLOAD = 'Partner Load Screen';
