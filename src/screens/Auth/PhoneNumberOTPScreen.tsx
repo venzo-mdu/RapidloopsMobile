@@ -1,9 +1,6 @@
 import { View, Text, ToastAndroid, Platform, ScrollView, Image, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
-import StatusBarCustom from '../../components/StatusBarCustom';
-import { PhoneNumberLoginStyles, PhoneNumberOTPStyles } from './AuthStyles';
-import { API, COLORS, IMAGES } from '../../helpers/custom';
 import { Snackbar } from 'react-native-paper';
 import Clipboard from '@react-native-clipboard/clipboard';
 import { DRAWERHOME, PARTNERDRAWERHOME, PARTNERTABHOME } from '..';
@@ -11,6 +8,9 @@ import { loginverifyOtp } from '../../function/firebaseFunction/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DeviceInfo from 'react-native-device-info';
 import messaging from '@react-native-firebase/messaging';
+import { API, COLORS, IMAGES } from '../../helpers/custom';
+import { PhoneNumberLoginStyles, PhoneNumberOTPStyles } from './AuthStyles';
+import StatusBarCustom from '../../components/StatusBarCustom';
 
 const PhoneNumberOTPScreen = (props) => {
 
@@ -46,84 +46,144 @@ const PhoneNumberOTPScreen = (props) => {
       AsyncStorage.setItem('USERID', response?.userData?.uid);
       AsyncStorage.setItem('PHONENUM',  props.route.params?.phoneNum);
 
-      console.log("first : ", response?.tokenResponse?.idToken, response?.userData?.uid);
-      // navigation.navigate(PARTNERTABHOME);
-
       const DeviceId = await DeviceInfo.getUniqueId();
       console.log("DeviceId =",DeviceId);
       console.log("UUID =", UUID, AUTHTOKEN);
 
       try {
-        fetch(API?.PartnerFCM + "?refreshToken=" + fcmToken + "&id=" + UUID, {
+        const data = JSON.stringify({
+          userId: UUID,
+        });
+
+        fetch(API.UserType, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + AUTHTOKEN,
-            'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
+          },
+          body: data
+        })
+        .then((res) => res.json())
+        .then((resJson) => {
+          console.log("USER TYPE RES= ",resJson?.data?.userTypeId, resJson?.status)
+
+          if (resJson?.status) {
+            if (resJson?.data?.userTypeId == 5 || resJson?.data?.userTypeId == 6) {
+              truckerDataFn(AUTHTOKEN, fcmToken, UUID, DeviceId);
+            } else if (resJson?.data?.userTypeId == 8) {
+              partnerDataFn(AUTHTOKEN, fcmToken, UUID, DeviceId);
+            } else {
+              console.warn("wrong")
+            }
+          } else {
+            console.warn("wrong")
           }
         })
-        .then((res1) => res1.json())
-        .then((resJson1) => {
-          console.log("FCM flow : ",resJson1);
-        })
-        .catch((err1) => {
-          console.error(err1);
+        .catch((error) => {
+          console.error(error);
         });
-      } catch (err11) {
-        console.error("catch : ", err11);
+      } catch (error) {
+        console.error("catch : ", error);
       }
+    }
+  };
 
-      try {
-        const data = JSON.stringify({
-          "userId" : UUID,
-          "deviceId" : DeviceId
-        });
+  const partnerDataFn = async (AUTHTOKEN, fcmToken, UUID, DeviceId) => {
+    try {
+      fetch(API?.PartnerFCM + "?refreshToken=" + fcmToken + "&id=" + UUID, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + AUTHTOKEN,
+          'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
+        }
+      })
+      .then((res1) => res1.json())
+      .then((resJson1) => {
+        console.log("FCM flow : ",resJson1);
 
-        fetch(API?.PartnerUpdateDeviceId, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + AUTHTOKEN,
-            'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
-          },
-          body: data,
-        })
-        .then((res2) => res2.json())
-        .then((resJson2) => {
-          console.log("responseJson : ",resJson2);
+        try {
+          const data = JSON.stringify({
+            "userId" : UUID,
+            "deviceId" : DeviceId
+          });
 
-          navigation.navigate(PARTNERTABHOME);
-        })
-        .catch((err2) => {
-          console.error(err2);
-        });
-      } catch (err22) {
-        console.error("catch : ", err22);
-      }
+          fetch(API?.PartnerUpdateDeviceId, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + AUTHTOKEN,
+              'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
+            },
+            body: data,
+          })
+          .then((res2) => res2.json())
+          .then((resJson2) => {
+            console.log("responseJson : ",resJson2);
 
-      // try {
-      //   fetch(API.TruckerData + "?truckerPhoneNumber=" + props.route.params?.phoneNum, {
-      //     method: 'GET',
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //       'Authorization': 'Bearer ' + AUTHTOKEN,
-      //     }
-      //   })
-      //   .then((res3) => res3.json())
-      //   .then((resJson3) => {
-      //     if(resJson3?.success) {
-      //       global.COMPANYID = resJson3?.companyInfo?.companyId
-      //       AsyncStorage.setItem('COMPANYID', resJson3?.companyInfo?.companyId);
-      //       console.warn("resJson3 : ",resJson3);
-      //       navigation.navigate(DRAWERHOME);
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.error(error);
-      //   });
-      // } catch (error) {
-      //   console.error("catch : ", error);
-      // }
+            navigation.navigate(PARTNERTABHOME);
+          })
+          .catch((err2) => {
+            console.error(err2);
+          });
+        } catch (error2) {
+          console.error("catch : ", error2);
+        }
+        
+      })
+      .catch((err1) => {
+        console.error(err1);
+      });
+    } catch (error1) {
+      console.error("catch : ", error1);
+    }
+  };
+
+  const truckerDataFn = async (AUTHTOKEN, fcmToken, UUID, DeviceId) => {
+    try {
+      fetch(API.TruckerData + "?truckerPhoneNumber=" + props.route.params?.phoneNum, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + AUTHTOKEN,
+        }
+      })
+      .then((res1) => res1.json())
+      .then((resJson1) => {
+        console.log("TruckerData res : ",resJson1);
+
+        if(resJson1?.success) {
+          global.COMPANYID = resJson1?.companyInfo?.companyId
+          AsyncStorage.setItem('COMPANYID', resJson1?.companyInfo?.companyId);
+
+          try {
+            fetch(API?.TruckerFCM + "?refreshToken=" + fcmToken + "&id=" + UUID, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + AUTHTOKEN,
+                'User-Agent':  DeviceId + "/" + "1.1.3" + "/" + Platform.OS ,
+              }
+            })
+            .then((res2) => res2.json())
+            .then((resJson2) => {
+              console.log("TRUCKER FCM RES : ",resJson2);
+              navigation.navigate(DRAWERHOME);
+            })
+            .catch((err2) => {
+              console.error(err2);
+            });
+
+          } catch (error2) {
+            console.error("catch : ", error2);
+          }
+        }
+      })
+      .catch((err1) => {
+        console.error(err1);
+      });
+    } catch (error1) {
+      console.error("catch : ", error1);
     }
   };
 

@@ -1,11 +1,11 @@
 import { View, Text, ImageBackground, Image, ScrollView, FlatList, RefreshControl } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import StatusBarCustom from '../../components/StatusBarCustom'
-import { API, COLORS, ICONS, IMAGES } from '../../helpers/custom'
-import { CompanyInfoScreenStyles, HomeScreenStyles, NotificationScreenStyles } from './AppStyles'
 import { useNavigation } from '@react-navigation/native'
 import moment from 'moment'
-import { TRIPS, TRIPSSTACK } from '..'
+import { API, COLORS, ICONS, IMAGES } from '../../../helpers/custom'
+import { TRIPSSTACK } from '../..'
+import StatusBarCustom from '../../../components/StatusBarCustom'
+import { NotificationScreenStyles } from '../AppStyles'
 
 const NotificationScreen = () => {
 

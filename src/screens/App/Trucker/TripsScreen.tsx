@@ -1,15 +1,13 @@
 import { View, Text, ImageBackground, Image, FlatList, Platform, Button, TextInput, Animated, Modal, RefreshControl } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
-import StatusBarCustom from '../../components/StatusBarCustom';
-import { API, COLORS, FONTS, ICONS, IMAGES, WD } from '../../helpers/custom';
-import { CompanyInfoScreenStyles, HomeScreenStyles, LoadListScreenStyles, TripsScreenStyles, UserScreenStyles } from './AppStyles';
-import { Dropdown } from 'react-native-element-dropdown';
 import moment from 'moment';
-import { NOTIFICATION } from '..';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import DropdownBox from '../../components/DropdownBox';
-import CustomDropDown from '../../components/CustomDropDown';
+import { API, COLORS, ICONS, IMAGES, WD } from '../../../helpers/custom';
+import { NOTIFICATION } from '../..';
+import StatusBarCustom from '../../../components/StatusBarCustom';
+import { CompanyInfoScreenStyles, HomeScreenStyles, LoadListScreenStyles, TripsScreenStyles, UserScreenStyles } from '../AppStyles';
+import CustomDropDown from '../../../components/CustomDropDown';
 
 const TripsScreen = () => {
 

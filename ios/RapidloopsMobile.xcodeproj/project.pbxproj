@@ -478,7 +478,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapiddrive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapidpartner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RapidloopsMobile.app/RapidloopsMobile";
 			};
@@ -502,7 +502,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapiddrive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapidpartner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RapidloopsMobile.app/RapidloopsMobile";
 			};
@@ -527,7 +527,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapiddrive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapidpartner;
 				PRODUCT_NAME = RapidloopsMobile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -553,7 +553,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapiddrive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rapidloops.rapidpartner;
 				PRODUCT_NAME = RapidloopsMobile;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -1,6 +1,6 @@
 // CustomTabBar.js
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, Image, Platform } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Image, Platform, TouchableHighlight } from 'react-native';
 import { COLORS, FONTS, ICONS } from '../helpers/custom';
 import { LOADDETAILS, PARTNERTRIPSSTACK, TRUCKSTACK } from '../screens';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
@@ -28,34 +28,38 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
 
         return (
           <>
-            <TouchableOpacity
-              key={index}
-              accessibilityRole="button"
-              accessibilityState={isFocused ? { selected: true } : {}}
-              accessibilityLabel={options.tabBarAccessibilityLabel}
-              testID={options.tabBarTestID}
-              onPress={onPress}
+            <View
+              // activeOpacity={0.9}
+              // underlayColor="rgba(191, 132, 30, 0.25)"
+              // key={index}
+              // accessibilityRole="button"
+              // accessibilityState={isFocused ? { selected: true } : {}}
+              // accessibilityLabel={options.tabBarAccessibilityLabel}
+              // testID={options.tabBarTestID}
+              onTouchEnd={onPress}
               style={[CustomTabBarStyles.individualTab, index == 0 ? {borderTopLeftRadius: 20,} : null, (route.name == TRUCKSTACK) || (route.name == PARTNERTRIPSSTACK) ? {borderTopRightRadius: 20,} : null]}
             >
-              {index == 0 ? (
-                <View>
-                  <Image source={isFocused ? ICONS.DRAWERHOMEACTIVE : ICONS.DRAWERHOMEINACTIVE} style={{ width: 20, height: 20}} />
-                </View>
-              ) : index == 1 ? (
-                <View>
-                  <Image source={isFocused ? ICONS.DRAWERLOADACTIVE : ICONS.DRAWERLOADINACTIVE} style={{ width: 20, height: 20}} />
-                </View>
-              ) : index == 2 ? (
-                <View>
-                  <Image source={isFocused ? ICONS.DRAWERTRIPSACTIVE : ICONS.DRAWERTRIPSINACTIVE} style={{ width: 20, height: 20}} />
-                </View>
-              ) : index == 3 ? (
-                <View>
-                  <Image source={isFocused ? ICONS.DRAWERTRUCKACTIVE : ICONS.DRAWERTRUCKINACTIVE} style={{ width: 20, height: 20}} />
-                </View>
-              ) : null}
-              <Text style={{ fontSize: 12, color: isFocused ? COLORS.PRIMARY : '#a49f99', fontFamily: FONTS.MontserratSemiBold, marginTop: 4 }}>{label}</Text>
-            </TouchableOpacity>
+              <View style={CustomTabBarStyles.wrap}>
+                {index == 0 ? (
+                  <View>
+                    <Image source={isFocused ? ICONS.DRAWERHOMEACTIVE : ICONS.DRAWERHOMEINACTIVE} style={{ width: 20, height: 20}} />
+                  </View>
+                ) : index == 1 ? (
+                  <View>
+                    <Image source={isFocused ? ICONS.DRAWERLOADACTIVE : ICONS.DRAWERLOADINACTIVE} style={{ width: 20, height: 20}} />
+                  </View>
+                ) : index == 2 ? (
+                  <View>
+                    <Image source={isFocused ? ICONS.DRAWERTRIPSACTIVE : ICONS.DRAWERTRIPSINACTIVE} style={{ width: 20, height: 20}} />
+                  </View>
+                ) : index == 3 ? (
+                  <View>
+                    <Image source={isFocused ? ICONS.DRAWERTRUCKACTIVE : ICONS.DRAWERTRUCKINACTIVE} style={{ width: 20, height: 20}} />
+                  </View>
+                ) : null}
+                <Text style={{ fontSize: 12, color: isFocused ? COLORS.PRIMARY : '#a49f99', fontFamily: FONTS.MontserratSemiBold, marginTop: 4 }}>{label}</Text>
+              </View>
+            </View>
             
             {/* {(LOADDETAILS == getFocusedRouteNameFromRoute(route) ?? "") ? (
               <>
@@ -76,6 +80,12 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
 export default CustomTabBar;
 
 const CustomTabBarStyles = StyleSheet.create({
+  wrap: {
+    width: "100%",
+    height: "100%",
+    justifyContent: 'center', 
+    alignItems: 'center',
+  },
   container: { 
     backgroundColor: "transparent",
     // height: Platform.OS == "ios" ? 96 : 64, // add 24

@@ -1,18 +1,26 @@
 import { useNavigation } from '@react-navigation/native';
 import moment from "moment";
 import React, { useEffect, useState } from 'react';
-import { FlatList, Image, ImageBackground, RefreshControl, Text, View } from 'react-native';
+import { FlatList, Image, ImageBackground, Modal, RefreshControl, Text, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
-import { NOTIFICATION } from '..';
-import StatusBarCustom from '../../components/StatusBarCustom';
-import { API, COLORS, IMAGEBASEURL, IMAGES } from '../../helpers/custom';
-import { HomeScreenStyles } from './AppStyles';
+import { NOTIFICATION } from '../..';
+import StatusBarCustom from '../../../components/StatusBarCustom';
+import { API, COLORS, ICONS, IMAGEBASEURL, IMAGES } from '../../../helpers/custom';
+import { HomeScreenStyles } from '../AppStyles';
+import messaging from '@react-native-firebase/messaging';
+import PushNotification from "react-native-push-notification";
+import RNFS from 'react-native-fs';
+import { decode } from 'base-64';
+import { Buffer } from 'buffer';
+global.Buffer = global.Buffer || require('buffer').Buffer;
+import dataUriToBlob from 'data-uri-to-blob';
 
 const HomeScreen = () => {
 
   const navigation = useNavigation();
 
   useEffect(() => {
+    createChannels();
     getDataFn();
   }, []);
 
@@ -40,92 +48,28 @@ const HomeScreen = () => {
     }
   };
 
-  const uploadImgFn1 = async () => {
-    const options = {
-      // maxHeight: 2000,
-      // maxWidth: 2000,
-      // storageOptions: {
-      //   skipBackup: true,
-      //   path: 'images'
-      // },
-      mediaType: 'photo',
-      // includeBase64: false,
-    };
-
-    var res;
-    console.log("")
-
-    await launchImageLibrary(options, (response) => { 
-      console.log("picker response :: ",response);
-
-      if (response.didCancel) {
-        console.error('User cancelled image picker');
-      } else if (response.error) {
-        console.error('Image picker error: ', response.error);
-      } else {
-        res = response?.assets[0];
-      }
-    });
-
-    console.log("res response :: ",res);
-
-    try {
-
-      const data = JSON.stringify({
-        "id" : global.USERID,
-        "docExt" : "jpeg",
-        "imageType" : "userProfile",
-      });
-
-      console.log("DATA : ",data);
-    
-      await fetch(API?.DashboardIMG, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + global.TOKEN,
-        },
-        body: data
-      })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        console.error("DashboardIMG : ",responseJson)
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-
-    } catch (error) {
-      console.error("catch : ", error);
-    }
-  };
-
   const uploadImgFn = async () => {
     try {
-      console.log("init");
-
       const options = {
         mediaType: 'photo',
+        includeBase64: true,
       };
   
       launchImageLibrary(options, async (response) => {
-        console.log("picker response :: ", response);
-  
         if (response.didCancel) {
           console.error('User cancelled image picker');
         } else if (response.error) {
           console.error('Image picker error: ', response.error);
         } else {
-          console.warn("response =",response);
+          const fileFormat = response?.assets[0]?.type.split("/");
 
-          // const { uri, type } = response.assets[0];
-          // console.log("uri, type =",uri, type);
+          const data = {
+            id: uploadImgType == "userProfile" ? global.USERID : global.COMPANYID,
+            docExt: fileFormat[1],
+            imageType: uploadImgType,
+          };
 
-          // const file = { uri, type }; // Assuming 'file' is an object with 'uri' and 'type' properties
-          // console.log("file =",file);
-
-          const results = await saveImage(API.DashboardIMG, response);
-          console.log("results =",results);
+          callAPIFn(data, response?.assets[0], response?.assets[0]?.type);
         }
       });
     } catch (error) {
@@ -133,59 +77,69 @@ const HomeScreen = () => {
     }
   };
 
-  const saveImage = async (url, file) => {
-    console.log("URL", url);
-    console.log("file", file);
-  
-    if (!url) return;
-  
+  const callAPIFn = async (data, file, type) => {
     try {
-      const options = {
-        headers: {
-          'Content-Type': file.type,
-          'x-ms-blob-type': 'BlockBlob',
-          'Authorization': 'Bearer ' + global.TOKEN,
-        }
-      };
-      console.log("options =",options);
 
-      const data = {
-        "docExt" : "jpg",
-        "id" : global.USERID,
-        "imageType" : "userProfile",
-      };
-      console.log("data =",data)
-  
-      const response = await fetch(url, {
+      await fetch(API?.DashboardIMG, {
         method: 'PUT',
-        headers: options.headers,
-        body: JSON.stringify(data), // file.uri // Assuming 'file' is an object with a 'uri' property in React Native
-      });
-      console.log("PUT response=",response);
-  
-      if (!response.ok) {
-        throw new Error('Failed to upload image');
-      }
-  
-      console.log("Image uploaded successfully");
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + global.TOKEN,
+        },
+        body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log("home responseJson : ",responseJson);
 
-      return response;
+        saveImage(responseJson?.uploadURL, file, type);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("catch : ", error);
+    }
+  };
+
+  const saveImage = async (url, file1, type) => {
+  
+    if (url == null) return;
+
+    try {
+      const headers = {
+        "Content-Type": type,
+        "x-ms-blob-type": "BlockBlob"
+      };
+    
+      const body = file1;
+
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: headers,
+        body: body
+      });
+
+      const result = await response.text();
+      console.log(result,"== result");
+
+      setShowUploadImgType("");
+      setShowUpload(false);
+      setShowDelete(false);
+      getDataFn();
+    } catch (error) {
+      console.error(error);
     }
   };
 
   const dashboardDeleteImageFn = async () => {
     try {
-
       const data = JSON.stringify({
-        "id" : global.USERID,
-        "fileName" : "user/userProfile-6ff50653-eb5b-4bdf-9ccb-cb50281784a2.jpg",
-        "fileType" : "userProfile",
+        "id" : uploadImgType == "userProfile" ? global.USERID : global.COMPANYID,
+        "fileName" : uploadImgType == "userProfile" ? DASHBOARDINFO[0]?.userDetail?.truckerProfileImage : DASHBOARDINFO[0]?.companyDetail?.companyProfileImage,
+        "fileType" : uploadImgType,
       });
-      
-      console.error(data)
-
+      console.log(data)
     
       await fetch(API?.DashboardDeleteIMG, {
         method: 'PUT',
@@ -197,7 +151,11 @@ const HomeScreen = () => {
       })
       .then((response) => response.json())
       .then((responseJson) => {
-        console.error("DELETE : ",responseJson)
+        console.log("DELETE : ",responseJson)
+        setShowUploadImgType("");
+        setShowUpload(false);
+        setShowDelete(false);
+        getDataFn();
       })
       .catch((error) => {
         console.error(error);
@@ -206,7 +164,32 @@ const HomeScreen = () => {
     } catch (error) {
       console.error("catch : ", error);
     }
-  }
+  };
+
+  const [showUpload, setShowUpload] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
+  const [uploadImgType, setShowUploadImgType] = useState("");
+
+  const uploadModalFn = (type) => {
+    console.error(type,"type")
+    if(type == "userProfile" && DASHBOARDINFO[0]?.userDetail?.truckerProfileImage != null) {
+      setShowDelete(true);
+      console.log("1")
+    } else if(type == "companyProfile" && DASHBOARDINFO[0]?.companyDetail?.companyProfileImage != null) {
+      setShowDelete(true);
+      console.log("2")
+    } else {
+      setShowDelete(false);
+      console.log("3")
+    }
+    
+    setShowUploadImgType(type);
+    setShowUpload(true);
+  };
+
+  const closeUploadFn = () => {
+    setShowUpload(false);
+  };
 
   const [DASHBOARDINFO, setDASHBOARDINFO] = useState([1]);
 
@@ -223,6 +206,37 @@ const HomeScreen = () => {
   const onRefresh = async () => {
     setRefreshing(true);
     await getDataFn();
+  };
+
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      var notify = (remoteMessage);
+      handleNotification(notify?.data?.title, notify?.data?.body);
+      console.log(JSON.stringify(remoteMessage))
+    });
+
+    return unsubscribe;
+  });
+
+  const createChannels = () => {
+    PushNotification.createChannel(
+      {
+        channelId : "test-channel",
+        channelName : "Test Channel"
+      }
+    )
+  };
+
+  const handleNotification = (title, body) => {
+    console.warn("remoteMessage =",title, body);
+    
+    PushNotification.localNotification(
+      {
+        channelId : "test-channel",
+        title : title,
+        message : body,
+      }
+    )
   };
 
   return (
@@ -255,13 +269,12 @@ const HomeScreen = () => {
           renderItem={({item, index}) => (
             <>
               <View style={HomeScreenStyles.userBGImgBox}>
-                <View onTouchEnd={uploadImgFn} style={HomeScreenStyles.userProfileImgBox}>
-                {/* <Image source={{uri : "https://hadrondev.blob.core.windows.net/hadron-rapidloops-com/user/userProfile-c352fe9f-a2e6-4642-8577-4918b14ffac1.jpg"}} style={HomeScreenStyles.userProfileCoverImg} /> */}
-                  <Image source={{uri : IMAGEBASEURL + item?.userDetail?.truckerProfileImage}} style={HomeScreenStyles.userProfileImg} />
+                <View onTouchEnd={uploadModalFn.bind(this,"userProfile")} style={HomeScreenStyles.userProfileImgBox}>
+                  <Image source={item?.userDetail?.truckerProfileImage != null ? {uri : IMAGEBASEURL + item?.userDetail?.truckerProfileImage + "?cb=" + Date.now(), cache: true} : ICONS.LIGHTGREYUSER} style={item?.userDetail?.truckerProfileImage ? HomeScreenStyles.userProfileImg : {width: 40, height: 40, marginLeft: "auto", marginRight: "auto", marginTop: "auto", marginBottom: "auto", }} />
                 </View>
 
-                <View onTouchEnd={uploadImgFn} style={HomeScreenStyles.userProfileCoverImgBox}>
-                  <Image source={{uri : IMAGEBASEURL + item?.companyDetail?.companyProfileImage}} style={HomeScreenStyles.userProfileCoverImg} />
+                <View onTouchEnd={uploadModalFn.bind(this,"companyProfile")} style={HomeScreenStyles.userProfileCoverImgBox}>
+                  <Image source={item?.companyDetail?.companyProfileImage != null ? {uri : IMAGEBASEURL + item?.companyDetail?.companyProfileImage + "?cb=" + Date.now(), cache: true} : ICONS.DRAWERTRUCKINACTIVE} style={HomeScreenStyles.userProfileCoverImg} />
                 </View>
 
                 <View style={HomeScreenStyles.countBox}>
@@ -349,6 +362,50 @@ const HomeScreen = () => {
           )}
         />
       </View>
+
+      <Modal
+        transparent={true}
+        animationType={"none"}
+        visible={showUpload}
+        onRequestClose={closeUploadFn}
+      >
+        <View style={HomeScreenStyles.modalBG}>
+          <View style={HomeScreenStyles.contentBox}>
+            {showDelete ? (
+              <View>
+                <View onTouchEnd={uploadImgFn} style={HomeScreenStyles.contentRow}>
+                  <View style={HomeScreenStyles.contentImgBox}>
+                    <Image source={ICONS.LIGHTGREYEDIT} style={{width: 20, height: 20}} />
+                  </View>
+
+                  <Text style={HomeScreenStyles.contentTxt1}>Edit Picture</Text>
+                </View>
+
+                <Text style={HomeScreenStyles.contentTxt2}>1024*768</Text>
+
+                <View onTouchEnd={dashboardDeleteImageFn} style={HomeScreenStyles.contentRow}>
+                  <View style={HomeScreenStyles.contentImgBox}>
+                    <Image source={ICONS.LIGHTGREYDELETE} style={{width: 20, height: 20}} />
+                  </View>
+                  <Text style={HomeScreenStyles.contentTxt1}>Remove Picture</Text>
+                </View>
+                </View>
+            ) : (
+              <View>
+                <View onTouchEnd={uploadImgFn} style={HomeScreenStyles.contentRow}>
+                  <View style={HomeScreenStyles.contentImgBox}>
+                    <Image source={ICONS.LIGHTGREYADDPIC} style={{width: 20, height: 20}} />
+                  </View>
+
+                  <Text style={HomeScreenStyles.contentTxt1}>Add Picture</Text>
+                </View>
+
+                <Text style={[HomeScreenStyles.contentTxt2, {marginBottom: 0}]}>1024*768</Text>
+              </View>
+            )}
+          </View>
+        </View>
+      </Modal>
     </View>
   )
 }

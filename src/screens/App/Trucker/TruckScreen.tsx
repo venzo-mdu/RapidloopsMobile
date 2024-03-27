@@ -1,10 +1,10 @@
 import { View, Text, ImageBackground, Image, FlatList, TextInput, Animated, Button, StyleSheet } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
-import StatusBarCustom from '../../components/StatusBarCustom';
-import { API, COLORS, ICONS, IMAGES } from '../../helpers/custom';
-import { CompanyInfoScreenStyles, HomeScreenStyles, TruckScreenStyles } from './AppStyles';
-import { NOTIFICATION } from '..';
+import { API, COLORS, ICONS, IMAGES } from '../../../helpers/custom';
+import { NOTIFICATION } from '../..';
+import StatusBarCustom from '../../../components/StatusBarCustom';
+import { CompanyInfoScreenStyles, HomeScreenStyles, TruckScreenStyles } from '../AppStyles';
 
 const TruckScreen = () => {
 

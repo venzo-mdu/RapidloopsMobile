@@ -2,18 +2,21 @@ import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useRef, useState } from 'react'
 import { Animated, FlatList, Image, ImageBackground, RefreshControl, ScrollView, Text, TextInput, View } from 'react-native'
 import { Dropdown } from 'react-native-element-dropdown'
-import StatusBarCustom from '../../components/StatusBarCustom'
-import { API, COLORS, FONTS, ICONS, IMAGES } from '../../helpers/custom'
-import { CompanyInfoScreenStyles, HomeScreenStyles, LoadListScreenStyles, UserScreenStyles } from './AppStyles'
-import { LOADDETAILS, NOTIFICATION } from '..'
-import DropdownBox from '../../components/DropdownBox'
-import CustomDropDown from '../../components/CustomDropDown'
+import StatusBarCustom from '../../../components/StatusBarCustom'
+import { API, COLORS, FONTS, ICONS, IMAGES } from '../../../helpers/custom'
+import { CompanyInfoScreenStyles, HomeScreenStyles, LoadListScreenStyles, UserScreenStyles } from '../AppStyles'
+import { LOADDETAILS, NOTIFICATION } from '../..'
+import DropdownBox from '../../../components/DropdownBox'
+import CustomDropDown from '../../../components/CustomDropDown'
+import messaging from '@react-native-firebase/messaging';
+import PushNotification from "react-native-push-notification";
 
 const LoadScreen = () => {
 
   const navigation = useNavigation();
 
   useEffect(() => {
+    createChannels();
     getDataFn("", "");
     getActiveShipperListFn();
     getLoadingPointListFn();
@@ -205,6 +208,37 @@ const LoadScreen = () => {
   const onRefresh = async () => {
     setRefreshing(true);
     await getDataFn("", "");
+  };
+
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      var notify = (remoteMessage);
+      handleNotification(notify?.data?.title, notify?.data?.body);
+      console.log(JSON.stringify(remoteMessage))
+    });
+
+    return unsubscribe;
+  });
+
+  const createChannels = () => {
+    PushNotification.createChannel(
+      {
+        channelId : "test-channel",
+        channelName : "Test Channel"
+      }
+    )
+  };
+
+  const handleNotification = (title, body) => {
+    console.warn("remoteMessage =",title, body);
+    
+    PushNotification.localNotification(
+      {
+        channelId : "test-channel",
+        title : title,
+        message : body,
+      }
+    )
   };
 
   return (

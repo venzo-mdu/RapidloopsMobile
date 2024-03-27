@@ -1,11 +1,10 @@
-import { View, Text, Image, ScrollView, TextInput, FlatList, Platform, ToastAndroid } from 'react-native'
+import { View, Text, Image, ScrollView, TextInput, FlatList, Platform, ToastAndroid, Alert } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
-import { AssignTruckScreenStyles, PartnerLoadDetailsScreenStyles } from './AppStyles'
-import { API, FONTS, ICONS } from '../../helpers/custom'
+import { AssignTruckScreenStyles, PartnerLoadDetailsScreenStyles } from '../AppStyles'
+import { API, FONTS, ICONS } from '../../../helpers/custom'
 import { useNavigation } from '@react-navigation/native'
-import CustomDropDown from '../../components/CustomDropDown'
-import DropdownCustom from './test';
-import { PARTNERLOAD } from '..'
+import messaging from '@react-native-firebase/messaging';
+import { PARTNERLOAD } from '../..'
 import DeviceInfo from 'react-native-device-info'
 
 const PartnerLoadDetailsScreen = (props) => {
@@ -100,17 +99,17 @@ const PartnerLoadDetailsScreen = (props) => {
     const [DRIVERCONSIGNORDATALIST, setDRIVERCONSIGNORDATALIST] = useState([]);
 
     const [truckerName, setTruckerName] = useState("");
-    const [driverName, setDriverName] = useState("Driver Test");
+    const [driverName, setDriverName] = useState("");
     const [driverMobileNo, setDriverMobileNo] = useState("");
     const [driverLicenceNo, setDriverLicenceNo] = useState("");
     const [consignor, setConsignor] = useState("");
     const [consignee, setConsignee] = useState("");
-    const [grossWeight1, setGrossWeight1] = useState("50");
-    const [grossWeight2, setGrossWeight2] = useState("000");
-    const [tareWeight1, setTareWeight1] = useState("45");
-    const [tareWeight2, setTareWeight2] = useState("000");
-    const [netWeight1, setNetWeight1] = useState("05");
-    const [netWeight2, setNetWeight2] = useState("000");
+    const [grossWeight1, setGrossWeight1] = useState("");
+    const [grossWeight2, setGrossWeight2] = useState("");
+    const [tareWeight1, setTareWeight1] = useState("");
+    const [tareWeight2, setTareWeight2] = useState("");
+    const [netWeight1, setNetWeight1] = useState("");
+    const [netWeight2, setNetWeight2] = useState("");
     const [shipperRefNo, setShipperRefNo] = useState("");
     const [vesselName, setVesselName] = useState("");
     const [eWayBillNo, setEWayBillNo] = useState("");
@@ -253,6 +252,9 @@ const PartnerLoadDetailsScreen = (props) => {
         if (val.length === 0) {
           grossWeight1InputRef.current.focus();
         }
+        if (val.length === 3) {
+            tareWeight1InputRef.current.focus();
+        }
     };
 
     const tareWeight1InputRef = useRef(null);
@@ -269,6 +271,26 @@ const PartnerLoadDetailsScreen = (props) => {
         setTareWeight2(val);
         if (val.length === 0) {
             tareWeight1InputRef.current.focus();
+        }
+        if (val.length === 3) {
+            netWeight1InputRef.current.focus();
+        }
+    };
+
+    const netWeight1InputRef = useRef(null);
+    const netWeight2InputRef = useRef(null);
+
+    const setNetWeight1Fn = (val) => {
+        setNetWeight1(val);
+        if (val.length === 2) {
+            netWeight2InputRef.current.focus();
+        }
+    };
+
+    const setNetWeight2Fn = (val) => {
+        setNetWeight2(val);
+        if (val.length === 0) {
+            netWeight1InputRef.current.focus();
         }
     };
 
@@ -381,7 +403,7 @@ const PartnerLoadDetailsScreen = (props) => {
             console.error("catch : ", error);
           }
         }
-      };
+    };
 
     return (
         <View style={PartnerLoadDetailsScreenStyles.container}>
@@ -707,26 +729,28 @@ const PartnerLoadDetailsScreen = (props) => {
                         <Text style={PartnerLoadDetailsScreenStyles.textIPHeadingTxt}>Net Weight *</Text>
                         <View style={PartnerLoadDetailsScreenStyles.textIPNumberRowBox}>
                             <TextInput
-                                onChangeText={setNetWeight1}
+                                onChangeText={val => setNetWeight1Fn(val)}
                                 value={netWeight1}
                                 style={PartnerLoadDetailsScreenStyles.textIPNumber1Txt}
                                 placeholder={"00"}
                                 placeholderTextColor={"#646464"}
                                 keyboardType="numeric"
                                 maxLength={2}
+                                ref={netWeight1InputRef}
                             />
                             <View style={PartnerLoadDetailsScreenStyles.textIPNumberSeperatorBox}>
                                 <Text style={PartnerLoadDetailsScreenStyles.textIPNumberSeperatorTxt}>.</Text>
                             </View>
 
                             <TextInput
-                                onChangeText={setNetWeight2}
+                                onChangeText={val => setNetWeight2Fn(val)}
                                 value={netWeight2}
                                 style={PartnerLoadDetailsScreenStyles.textIPNumber2Txt}
                                 placeholder={"000"}
                                 placeholderTextColor={"#646464"}
                                 keyboardType="numeric"
                                 maxLength={3}
+                                ref={netWeight2InputRef}
                             />
                         </View>
                     </View>

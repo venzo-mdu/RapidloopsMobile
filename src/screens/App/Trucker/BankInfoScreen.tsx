@@ -1,10 +1,10 @@
 import { View, Text, ImageBackground, ScrollView, FlatList, RefreshControl } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import StatusBarCustom from '../../components/StatusBarCustom'
-import { API, COLORS, IMAGES } from '../../helpers/custom'
-import { BankInfoScreenStyles, CompanyInfoScreenStyles, HomeScreenStyles, UserScreenStyles } from './AppStyles'
 import { useNavigation } from '@react-navigation/native'
-import { NOTIFICATION } from '..'
+import { API, COLORS, IMAGES } from '../../../helpers/custom';
+import { NOTIFICATION } from '../..';
+import StatusBarCustom from '../../../components/StatusBarCustom';
+import { BankInfoScreenStyles, CompanyInfoScreenStyles, HomeScreenStyles, UserScreenStyles } from '../AppStyles';
 
 const BankInfoScreen = () => {
 

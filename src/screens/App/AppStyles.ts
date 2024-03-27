@@ -85,6 +85,7 @@ export const HomeScreenStyles = StyleSheet.create({
     backgroundColor: COLORS.WHITE,
     width: bgHeight / 1.5,
     height: bgHeight / 1.5,
+    marginLeft: 4,
     marginTop: 'auto',
     borderWidth: 2,
     borderColor: COLORS.PRIMARY,
@@ -229,6 +230,42 @@ export const HomeScreenStyles = StyleSheet.create({
     color: '#737270',
     fontFamily: FONTS.MontserratMedium,
     marginTop: 10,
+  },
+
+  modalBG: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    ...helpersCSS.Mid,
+  },
+  contentBox: {
+    backgroundColor: COLORS.WHITE,
+    width: WD - (40 * 2),
+    paddingHorizontal: 24,
+    paddingVertical: 24,
+    borderRadius: 3,
+  },
+  contentRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  contentImgBox: {
+    width: 32,
+    height: 32,
+    ...helpersCSS.Mid,
+    marginRight: 12,
+  },
+  contentTxt1: {
+    fontSize: 14,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+  },
+  contentTxt2: {
+    fontSize: 10,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+    marginLeft: 8,
+    marginTop: 4,
+    marginBottom: 16,
   },
 });
 
@@ -1443,6 +1480,41 @@ export const PartnerDashboardScreenStyles = StyleSheet.create({
     marginTop: 10,
   },
 
+  modalBG: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    ...helpersCSS.Mid,
+  },
+  contentBox: {
+    backgroundColor: COLORS.WHITE,
+    width: WD - (40 * 2),
+    paddingHorizontal: 24,
+    paddingVertical: 24,
+    borderRadius: 3,
+  },
+  contentRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  contentImgBox: {
+    width: 32,
+    height: 32,
+    ...helpersCSS.Mid,
+    marginRight: 12,
+  },
+  contentTxt1: {
+    fontSize: 14,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+  },
+  contentTxt2: {
+    fontSize: 10,
+    color: '#737270',
+    fontFamily: FONTS.MontserratMedium,
+    marginLeft: 8,
+    marginTop: 4,
+    marginBottom: 16,
+  },
 });
 
 export const PartnerLoadsScreenStyles = StyleSheet.create({
@@ -2004,7 +2076,7 @@ export const PartnerPODScreenStyles = StyleSheet.create({
   },
   cameraCardBox: {
     backgroundColor: COLORS.WHITE,
-    height: 134,
+    height: 128,
     alignItems: "center",
     justifyContent: "flex-end",
     marginHorizontal: 48,

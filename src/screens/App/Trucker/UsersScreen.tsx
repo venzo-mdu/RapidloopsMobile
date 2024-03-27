@@ -1,9 +1,9 @@
 import { View, Text, ImageBackground } from 'react-native'
 import React from 'react'
-import StatusBarCustom from '../../components/StatusBarCustom'
-import { COLORS, IMAGES } from '../../helpers/custom'
-import { CompanyInfoScreenStyles, HomeScreenStyles, UserScreenStyles } from './AppStyles'
 import { useNavigation } from '@react-navigation/native'
+import StatusBarCustom from '../../../components/StatusBarCustom';
+import { COLORS, IMAGES } from '../../../helpers/custom';
+import { CompanyInfoScreenStyles, HomeScreenStyles, UserScreenStyles } from '../AppStyles';
 
 const UsersScreen = () => {
 

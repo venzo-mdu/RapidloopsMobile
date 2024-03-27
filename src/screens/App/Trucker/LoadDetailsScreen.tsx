@@ -1,11 +1,11 @@
 import { View, Text, ImageBackground, Image, ScrollView, FlatList, Linking } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import StatusBarCustom from '../../components/StatusBarCustom'
-import { API, COLORS, ICONS, IMAGES } from '../../helpers/custom'
-import { LoadDetailsScreenStyles } from './AppStyles'
 import { useNavigation } from '@react-navigation/native'
-import { ASSIGNTRUCK } from '..'
 import moment from 'moment'
+import { API, COLORS, ICONS, IMAGES } from '../../../helpers/custom'
+import { ASSIGNTRUCK } from '../..'
+import StatusBarCustom from '../../../components/StatusBarCustom'
+import { LoadDetailsScreenStyles } from '../AppStyles'
 
 const LoadDetailsScreen = (props) => {
 

@@ -1,4 +1,4 @@
-package com.rapidloops.rapiddrive
+package com.rapidloops.rapidpartner
 
 import android.app.Application
 import com.facebook.react.PackageList

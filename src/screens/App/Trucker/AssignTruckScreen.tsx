@@ -1,11 +1,11 @@
 import { View, Text, TextInput, FlatList, StyleSheet, Modal, Alert, Pressable, UIManager, findNodeHandle, Platform, ToastAndroid, ScrollView } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
-import StatusBarCustom from '../../components/StatusBarCustom';
-import { API, COLORS, FONTS, WD } from '../../helpers/custom';
-import { AssignTruckScreenStyles, LoadListScreenStyles } from './AppStyles';
+import StatusBarCustom from '../../../components/StatusBarCustom';
+import { API, COLORS, FONTS, WD } from '../../../helpers/custom';
+import { AssignTruckScreenStyles, LoadListScreenStyles } from '../AppStyles';
 import { Dropdown } from 'react-native-element-dropdown';
-import { ASSIGNTRUCK } from '..';
+import { ASSIGNTRUCK } from '../..';
 
 const AssignTruckScreen = (props) => {
 
@@ -78,6 +78,8 @@ const AssignTruckScreen = (props) => {
           "driverPhoneNumber" : driverMobileNumber,
           "driverName": driverName,
         });
+
+        console.log(data,"data")
       
         await fetch(API?.AssignTruck, {
           method: 'POST',
@@ -89,6 +91,7 @@ const AssignTruckScreen = (props) => {
         })
         .then((response) => response.json())
         .then((responseJson) => {
+          console.log(responseJson,"responseJson")
           if(Platform.OS == "ios") {
             //   setToast("Enter valid phone number");
             //   setVisible(true);

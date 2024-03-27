@@ -75,9 +75,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.rapidloops.rapiddrive"
+    namespace "com.rapidloops.rapidpartner"
     defaultConfig {
-        applicationId "com.rapidloops.rapiddrive"
+        applicationId "com.rapidloops.rapidpartner"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

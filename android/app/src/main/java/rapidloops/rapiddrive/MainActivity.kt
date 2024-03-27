@@ -1,4 +1,4 @@
-package com.rapidloops.rapiddrive
+package com.rapidloops.rapidpartner
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity

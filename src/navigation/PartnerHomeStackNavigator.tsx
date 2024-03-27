@@ -1,11 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { PARTNERDASHBOARD, PARTNERLOAD, PARTNERLOADDETAILS, PARTNERPOD, PARTNERTRIPS } from '../screens';
-import PartnerDashboardScreen from '../screens/App/PartnerDashboardScreen';
-import PartnerLoadsScreen from '../screens/App/PartnerLoadsScreen';
-import PartnerTripsScreen from '../screens/App/PartnerTripsScreen';
-import PartnerLoadDetailsScreen from '../screens/App/PartnerLoadDetailsScreen';
-import PartnerPODScreen from '../screens/App/PartnerPODScreen';
+import PartnerDashboardScreen from '../screens/App/Partner/PartnerDashboardScreen';
+import PartnerLoadsScreen from '../screens/App/Partner/PartnerLoadsScreen';
+import PartnerTripsScreen from '../screens/App/Partner/PartnerTripsScreen';
+import PartnerLoadDetailsScreen from '../screens/App/Partner/PartnerLoadDetailsScreen';
+import PartnerPODScreen from '../screens/App/Partner/PartnerPODScreen';
 
 const Stack = createNativeStackNavigator();
 

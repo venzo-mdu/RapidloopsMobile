@@ -1,18 +1,17 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { ASSIGNTRUCK, BANKINFO, COMPANYINFO, DASHBOARD, LOAD, LOADDETAILS, NOTIFICATION, SETTINGS, TRIPS, TRUCK, USERS } from '../screens';
-import AssignTruckScreen from '../screens/App/AssignTruckScreen';
-import BankInfoScreen from '../screens/App/BankInfoScreen';
-import CompanyInfoScreen from '../screens/App/CompanyInfoScreen';
-import HomeScreen from '../screens/App/HomeScreen';
-import LoadDetailsScreen from '../screens/App/LoadDetailsScreen';
-import LoadScreen from '../screens/App/LoadScreen';
-import NotificationScreen from '../screens/App/NotificationScreen';
-import SettingsScreen from '../screens/App/SettingsScreen';
-import TripsScreen from '../screens/App/TripsScreen';
-import TruckScreen from '../screens/App/TruckScreen';
-import UsersScreen from '../screens/App/UsersScreen';
-
+import HomeScreen from '../screens/App/Trucker/HomeScreen';
+import CompanyInfoScreen from '../screens/App/Trucker/CompanyInfoScreen';
+import BankInfoScreen from '../screens/App/Trucker/BankInfoScreen';
+import UsersScreen from '../screens/App/Trucker/UsersScreen';
+import SettingsScreen from '../screens/App/Trucker/SettingsScreen';
+import NotificationScreen from '../screens/App/Trucker/NotificationScreen';
+import LoadScreen from '../screens/App/Trucker/LoadScreen';
+import LoadDetailsScreen from '../screens/App/Trucker/LoadDetailsScreen';
+import AssignTruckScreen from '../screens/App/Trucker/AssignTruckScreen';
+import TripsScreen from '../screens/App/Trucker/TripsScreen';
+import TruckScreen from '../screens/App/Trucker/TruckScreen';
 const Stack = createNativeStackNavigator();
 
 export const HomeNavigator = () => {    

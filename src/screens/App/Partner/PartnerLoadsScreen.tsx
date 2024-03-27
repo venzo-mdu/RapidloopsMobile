@@ -1,18 +1,22 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useRef, useState } from 'react'
-import { FlatList, Image, ImageBackground, Modal, Platform, Text, TextInput, UIManager, View, findNodeHandle } from 'react-native'
-import { PARTNERLOADDETAILS } from '..'
-import CustomDropDown from '../../components/CustomDropDown'
-import StatusBarCustom from '../../components/StatusBarCustom'
-import { API, COLORS, ICONS, IMAGES, helpersCSS } from '../../helpers/custom'
-import { PartnerDashboardScreenStyles, PartnerLoadsScreenStyles } from './AppStyles'
+import { Alert, FlatList, Image, ImageBackground, Modal, Platform, Text, TextInput, UIManager, View, findNodeHandle } from 'react-native'
+import { PARTNERLOADDETAILS } from '../..'
+import CustomDropDown from '../../../components/CustomDropDown'
+import StatusBarCustom from '../../../components/StatusBarCustom'
+import { API, COLORS, ICONS, IMAGES, helpersCSS } from '../../../helpers/custom'
+import { PartnerDashboardScreenStyles, PartnerLoadsScreenStyles } from '../AppStyles'
 import DeviceInfo from 'react-native-device-info'
+import messaging from '@react-native-firebase/messaging';
+import PushNotification from "react-native-push-notification";
+import PartnerStatusBarCustom from '../../../components/PartnerStatusBarCustom'
 
 const PartnerLoadsScreen = () => {
 
   const navigation = useNavigation();
 
   useEffect(() => {
+    createChannels();
     getDataFn();
   }, []);
 
@@ -127,9 +131,7 @@ const PartnerLoadsScreen = () => {
   };
 
   const goToDetailsFn = (item,index) => {
-    console.log(item)
     const loadId = item?.loadId;
-    console.log(loadId)
     navigation.navigate(PARTNERLOADDETAILS, {loadId});
   };
 
@@ -145,21 +147,43 @@ const PartnerLoadsScreen = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      var notify = (remoteMessage);
+      handleNotification(notify?.data?.title, notify?.data?.body);
+      console.log(JSON.stringify(remoteMessage))
+    });
+
+    return unsubscribe;
+  });
+
+  const createChannels = () => {
+    PushNotification.createChannel(
+      {
+        channelId : "test-channel",
+        channelName : "Test Channel"
+      }
+    )
+  };
+
+  const handleNotification = (title, body) => {
+    console.warn("remoteMessage =",title, body);
+    
+    PushNotification.localNotification(
+      {
+        channelId : "test-channel",
+        title : title,
+        message : body,
+      }
+    )
+  };
+
   return (
     <View>
       <StatusBarCustom sb_color={COLORS.BLACK} />
 
       <View style={PartnerLoadsScreenStyles.container}>
-        <View style={PartnerDashboardScreenStyles.appBarBGIMGBox}>
-          <View style={PartnerDashboardScreenStyles.appBarIconBox} />
-          <View style={PartnerDashboardScreenStyles.appBarBGIMGView}>
-            <Image source={IMAGES.APPLOGINLOGOWHITE} style={PartnerDashboardScreenStyles.appBarBGIMG} />
-          </View>
-
-          <View style={PartnerDashboardScreenStyles.appBarIconBox}>
-            <Image source={ICONS.WHITELOGOUT} style={{width: 24, height: 24}} />
-          </View>
-        </View>
+        <PartnerStatusBarCustom />
 
         <View style={PartnerLoadsScreenStyles.searchBGImgBox}>
           <ImageBackground source={IMAGES.APPBARBG} style={PartnerLoadsScreenStyles.searchBGImg} resizeMode="stretch">

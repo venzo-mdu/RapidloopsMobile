@@ -6,7 +6,7 @@ const IconPath = '../assets/icons/';
 export const COLORS = {
   WHITE: '#FFF',
   BLACK: '#000',
-  PRIMARY: '#BF841E',
+  PRIMARY: '#BF841E', //rgba(191, 132, 30, 1)
   GREY: '#222',
 };
 
@@ -80,6 +80,9 @@ export const ICONS = {
   BLACKPICKUP : require(IconPath + 'black_pickup_truck.png'),
   BLACKBIGCAMERA : require(IconPath + 'black_camera_big.png'),
   REDROUNDABOUT : require(IconPath + 'red_roundabout.png'),
+  LIGHTGREYDELETE : require(IconPath + 'lightgrey_delete.png'),
+  LIGHTGREYEDIT : require(IconPath + 'lightgrey_edit.png'),
+  LIGHTGREYADDPIC : require(IconPath + 'lightgrey_add_photo.png'),
 };
 
 // Function to get status bar height
@@ -134,8 +137,10 @@ export {helpersCSS};
 const BaseURL = 'http://uat-hadron.rapidloops.com/api';
 
 // const BaseURL = 'http://192.168.0.16:3000/api' // test
+// const BaseURL = 'http://192.168.192.163:3000/api'
 
 export const API = {
+  UserType : BaseURL + '/mobile/user',
   TruckerData : BaseURL + '/mobile/trucker/data',
   Dashboard : BaseURL + '/mobile/trucker/dashboard',
   DashboardIMG : BaseURL + '/mobile/trucker/azure/dashboardImage',
@@ -151,6 +156,7 @@ export const API = {
   TripsList : BaseURL + '/mobile/trip/getAllTripsForMobileTrucker/v2', // POST
 
   // ActiveShipperList: BaseURL + '/mobile/trucker/activeShipper',
+  TruckerFCM : BaseURL + '/mobile/trucker/registrationToken',
   ActiveShipperList: BaseURL + '/mobile/trucker/load/shippers',
   MaterialList : BaseURL + '/mobile/trucker/filter/materials',
   NotificationsList : BaseURL + '/mobile/trucker/notifications',
@@ -162,11 +168,14 @@ export const API = {
   PartnerFCM : BaseURL + '/mobile/partner/registrationToken',
   PartnerUpdateDeviceId : BaseURL + '/mobile/partner/updateDeviceId',
   PartnerDashboard : BaseURL + '/mobile/partner/dashboard',
+  PartnerDashboardIMG : BaseURL + '/mobile/partner/azure/dashboardImage',
+  PartnerDashboardDeleteIMG : BaseURL + '/mobile/partner/azure/deleteImage',
   PartnerAccessAreas : BaseURL + '/mobile/partner/accessAreas',
   PartnerLoadList : BaseURL + '/mobile/partner/getLoads/v2',
   PartnerLoadOne : BaseURL + '/mobile/partner/trip/previousTripData',
   PartnerCreateTrip : BaseURL + '/mobile/partner/trip/v7/create',
   PartnerGetTrucks : BaseURL + '/mobile/partner/getTrucks',
+  PartnerUnLoadDoc : BaseURL + '/mobile/partner/v3/unloadDoc',
   
   PartnerTripList : BaseURL + '/mobile/partner/getTrips/v2',
   

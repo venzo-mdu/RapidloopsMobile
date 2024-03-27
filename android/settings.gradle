@@ -1,4 +1,4 @@
-rootProject.name = 'com.rapidloops.rapiddrive'
+rootProject.name = 'com.rapidloops.rapidpartner'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
